@@ -1,0 +1,294 @@
+import {
+  Salad,
+  Dumbbell,
+  Scale,
+  Moon,
+  Brain,
+  Sparkles,
+  Flower2,
+  type LucideIcon,
+} from "lucide-react";
+
+export interface PillarGuide {
+  title: string;
+  description: string;
+}
+
+export interface Category {
+  slug: string;
+  name: string;
+  tagline: string;
+  overview: string;
+  icon: LucideIcon;
+  accent: string; // text color
+  gradient: string; // bg gradient for hero/card
+  popularTopics: string[];
+  faqs: { q: string; a: string }[];
+  /** SEO meta description (from the client's resource-center blueprints). */
+  metaDescription?: string;
+  /** Short promise of what a reader takes away from this resource center. */
+  learningObjectives?: string[];
+  /** The cornerstone article every supporting guide links back to. */
+  pillarGuide?: PillarGuide;
+  /** Supporting guides that make up this resource center. */
+  guides?: string[];
+}
+
+// The 7 permanent Resource Centers (evergreen pillar pages).
+export const categories: Category[] = [
+  {
+    slug: "healthy-eating",
+    name: "Healthy Eating",
+    tagline: "Food as your first medicine",
+    overview:
+      "Practical, evidence-informed nutrition guides that help you eat for how you want to feel. Learn which everyday foods support digestion, heart health, and steady energy — and how to build simple, balanced meals you'll actually enjoy.",
+    icon: Salad,
+    accent: "text-forest-700",
+    gradient: "from-forest-600 to-forest-800",
+    popularTopics: ["Gut health", "Anti-inflammatory foods", "Heart-healthy eating", "Meal planning", "Seasonal eating"],
+    faqs: [
+      { q: "What does 'healthy eating' actually mean here?", a: "It means choosing whole, everyday foods with intention — matching what you eat to how you want to feel, rather than following restrictive fad diets." },
+      { q: "Do I have to give up foods I love?", a: "No. This approach is about balance and swaps, not deprivation. Small, steady changes are what actually last." },
+      { q: "Is this based on science or tradition?", a: "Both. Our guides blend Traditional Chinese Medicine's food wisdom with modern nutrition research." },
+    ],
+  },
+  {
+    slug: "fitness",
+    name: "Fitness",
+    tagline: "Move well, feel strong",
+    overview:
+      "Gentle, sustainable movement paired with the foods that support mobility, comfort, and recovery. From easy daily practices to joint-friendly nutrition, this hub helps you stay active for the long game.",
+    icon: Dumbbell,
+    accent: "text-ember-600",
+    gradient: "from-ember-500 to-ember-600",
+    popularTopics: ["Joint comfort", "Mobility", "Recovery foods", "Gentle movement", "Everyday strength"],
+    faqs: [
+      { q: "Do I need a gym to use these guides?", a: "Not at all. We focus on gentle, accessible movement — like walking, stretching, and Qi Gong — that fits into everyday life." },
+      { q: "Can food really help with joint comfort?", a: "Warming, nourishing foods are traditionally used to support comfortable, mobile joints. Our guides show you which ones and why." },
+      { q: "Is this suitable for older adults?", a: "Yes — the approach is designed to be gentle and sustainable at any age. Always check with your doctor first." },
+    ],
+  },
+  {
+    slug: "weight-management",
+    name: "Weight Management",
+    tagline: "Steady, not starving",
+    overview:
+      "This is not a 'weight loss' category. PowerFoods promotes healthy weight management through sustainable nutrition, movement, sleep, stress management, and long-term habits — not fad diets, detoxes, or unrealistic promises. Healthy weight is the result of healthy habits, and you should leave here informed, not guilty.",
+    icon: Scale,
+    accent: "text-forest-700",
+    gradient: "from-forest-500 to-forest-700",
+    popularTopics: ["Healthy weight", "Protein", "Fiber", "Calories", "Meal planning", "Portion sizes", "Mindful eating", "Walking", "Sustainable habits", "Weight maintenance"],
+    metaDescription:
+      "Learn evidence-based strategies for achieving and maintaining a healthy weight through nutrition, physical activity, sleep, stress management, and sustainable habits.",
+    learningObjectives: [
+      "Energy balance, explained simply",
+      "Why crash diets usually fail",
+      "Building sustainable eating habits",
+      "The role of physical activity",
+      "How sleep and stress affect body weight",
+      "Appetite regulation, protein and fiber",
+      "Portion awareness and healthy goal setting",
+      "Maintaining your weight after reaching a goal",
+    ],
+    pillarGuide: {
+      title: "The Complete Guide to Healthy Weight Management: Sustainable Strategies That Last",
+      description:
+        "The cornerstone guide for this resource center — covering energy balance, sustainable habits, physical activity, nutrition, sleep, stress, and long-term maintenance. Every supporting guide links back to it.",
+    },
+    guides: [
+      "Understanding Calories Without Obsessing Over Them",
+      "Why Protein Helps You Feel Full",
+      "Fiber: One of the Most Overlooked Nutrients",
+      "Healthy Portion Sizes Made Simple",
+      "How Sleep Influences Weight Management",
+      "Stress Eating: Why It Happens and What You Can Do",
+      "Why Crash Diets Usually Don't Work",
+      "Walking for Healthy Weight Management",
+      "Building Healthy Eating Habits That Last",
+      "Maintaining Weight After Reaching Your Goal",
+    ],
+    faqs: [
+      { q: "Is this another diet?", a: "No. It's about steady energy and satisfying foods that make 'enough' feel genuinely enough — not restriction." },
+      { q: "Why do crash diets fail?", a: "They fight your body's hunger signals and often cost you muscle, so the weight tends to return. When energy is level, cravings quiet down naturally, which is far easier to sustain." },
+      { q: "How fast will I see results?", a: "This is a steady, long-game approach. Small consistent changes beat dramatic ones you can't keep." },
+    ],
+  },
+  {
+    slug: "better-sleep",
+    name: "Better Sleep",
+    tagline: "Rest, restore, recharge",
+    overview:
+      "Sleep often starts long before bedtime. This hub is not a medical sleep clinic or a supplement review site — it's an evidence-based guide to sleep hygiene, daily habits, nutrition, stress management, and lifestyle practices that support consistent, restorative rest.",
+    icon: Moon,
+    accent: "text-forest-800",
+    gradient: "from-forest-700 to-forest-900",
+    popularTopics: ["Sleep hygiene", "Evening foods", "Caffeine & sleep", "Bedtime routines", "Stress & sleep", "Morning habits", "Wind-down rituals", "Deep rest"],
+    metaDescription:
+      "Discover science-backed strategies to improve sleep quality through nutrition, healthy habits, relaxation techniques, and sleep hygiene. Learn practical ways to support restful sleep naturally.",
+    learningObjectives: [
+      "Why sleep matters for body and mind",
+      "The essentials of good sleep hygiene",
+      "How diet and caffeine influence sleep quality",
+      "Building a bedtime routine that actually works",
+      "How stress affects rest — and how to calm it",
+      "Morning habits that support better sleep",
+      "How sleep changes as you age",
+      "Separating common sleep myths from facts",
+    ],
+    pillarGuide: {
+      title: "The Complete Guide to Better Sleep: Building Healthy Habits for Restful Nights",
+      description:
+        "The flagship guide of the Better Sleep hub. It introduces the science of sleep, healthy sleep behaviors, and practical strategies that support better rest — with every supporting guide linking back to it.",
+    },
+    guides: [
+      "Understanding Sleep Hygiene",
+      "How Your Diet May Influence Sleep Quality",
+      "The Effects of Caffeine on Sleep",
+      "Building a Bedtime Routine That Works",
+      "Stress and Sleep",
+      "Morning Habits That Support Better Sleep",
+      "Sleep as You Age",
+      "Common Sleep Myths",
+    ],
+    faqs: [
+      { q: "Can food really affect my sleep?", a: "Yes. Heavy or stimulating late meals keep the body busy, while certain calming foods may help create an environment conducive to sleep." },
+      { q: "What should I avoid before bed?", a: "Very late, heavy, or stimulating foods and drinks — especially caffeine. Our guides cover exactly what to skip after dark." },
+      { q: "How long before bed should I eat?", a: "Generally, lighter and earlier is better. See the guides for a simple evening framework." },
+    ],
+  },
+  {
+    slug: "mental-wellness",
+    name: "Mental Wellness",
+    tagline: "A calm, clear mind",
+    overview:
+      "Mental Wellness sits at the crossroads of nutrition, sleep, stress, and movement. Rather than motivation or inspirational quotes, this is a science-backed lifestyle resource that explores how daily habits support emotional and cognitive well-being — never diagnosing, never a substitute for professional care.",
+    icon: Brain,
+    accent: "text-sap",
+    gradient: "from-sap to-forest-700",
+    popularTopics: ["Stress management", "Nutrition & mood", "Exercise & mood", "Digital wellness", "Daily routines", "Mindfulness", "Brain health", "Resilience"],
+    metaDescription:
+      "Explore evidence-based strategies to support mental wellness through nutrition, sleep, physical activity, stress management, mindfulness, and healthy daily habits.",
+    learningObjectives: [
+      "What mental wellness really means",
+      "What happens in the body under stress",
+      "How nutrition and exercise influence mood",
+      "Building healthy daily routines",
+      "Practical, healthy ways to manage stress",
+      "Digital wellness and protecting your attention",
+      "Supporting brain health across the lifespan",
+      "Separating mental wellness myths from facts",
+    ],
+    pillarGuide: {
+      title: "The Complete Guide to Mental Wellness: Everyday Habits That Support Emotional Well-Being",
+      description:
+        "The cornerstone guide for this resource center. It connects nutrition, movement, sleep, and stress management into a grounded, everyday approach to emotional and cognitive well-being.",
+    },
+    guides: [
+      "Understanding Stress: What Happens Inside Your Body?",
+      "Nutrition and Mental Wellness",
+      "Exercise and Mood",
+      "Digital Wellness",
+      "Building Healthy Daily Routines",
+      "Healthy Ways to Manage Stress",
+      "Brain Health Across the Lifespan",
+      "Common Mental Wellness Myths",
+    ],
+    faqs: [
+      { q: "Is this a substitute for mental-health care?", a: "No. These are supportive lifestyle guides, not medical or psychological treatment. Please seek professional help when you need it." },
+      { q: "Can food influence mood?", a: "Steady energy and a well-nourished body support a steadier mood. Our guides explain the food-mind connection simply." },
+      { q: "What helps with everyday stress?", a: "Consistent routines, movement, sleep, and simple mindfulness practices. Start with the Healthy Ways to Manage Stress guide." },
+    ],
+  },
+  {
+    slug: "healthy-habits",
+    name: "Healthy Habits",
+    tagline: "Small changes, lasting results",
+    overview:
+      "Unlike Healthy Eating, Fitness, or Better Sleep, this category teaches behavior change — the connective tissue between every other hub. It's where readers learn how to build routines they can actually maintain, using evidence-based habit science, so small daily choices add up to lasting health.",
+    icon: Sparkles,
+    accent: "text-ember-600",
+    gradient: "from-ember-400 to-ember-600",
+    popularTopics: ["Habit building", "Morning routines", "Evening routines", "Meal planning", "Hydration", "Staying active", "Digital wellness", "Consistency"],
+    metaDescription:
+      "Learn evidence-based daily habits that support long-term health. Discover practical routines for nutrition, movement, hydration, sleep, stress management, and overall well-being.",
+    learningObjectives: [
+      "The science of how habits are formed",
+      "Building morning and evening routines that stick",
+      "High-impact habits that take under 10 minutes",
+      "Making meal planning simple and repeatable",
+      "Staying active during a busy day",
+      "Healthy hydration and home-environment habits",
+      "Creating healthier technology habits",
+      "Why consistency beats motivation",
+    ],
+    pillarGuide: {
+      title: "The Complete Guide to Healthy Habits: Building a Sustainable Wellness Lifestyle",
+      description:
+        "The cornerstone guide for this resource center. It teaches the behavior-change principles behind lasting routines, so every supporting guide can show you how to put one habit into practice.",
+    },
+    guides: [
+      "How Habits Are Formed: The Science Behind Lasting Change",
+      "Building a Healthy Morning Routine",
+      "Creating an Evening Routine for Better Recovery",
+      "Healthy Habits That Take Less Than 10 Minutes",
+      "Meal Planning Made Simple",
+      "Staying Active During a Busy Day",
+      "Healthy Hydration Habits",
+      "Building a Healthy Home Environment",
+      "Digital Wellness: Creating Healthier Technology Habits",
+      "Why Consistency Matters More Than Motivation",
+    ],
+    faqs: [
+      { q: "Where should a beginner start?", a: "Pick one small habit — like a warming morning food or an earlier dinner — and build from there. Consistency beats intensity." },
+      { q: "How long until a habit sticks?", a: "It varies, but starting tiny and staying consistent is the reliable path. Our guides keep each step simple." },
+      { q: "Is motivation enough to change my habits?", a: "Rarely on its own. Systems, routines, and environment do the heavy lifting — motivation just gets you started. See Why Consistency Matters More Than Motivation." },
+    ],
+  },
+  {
+    slug: "beauty",
+    name: "Beauty & Personal Care",
+    tagline: "Glow from the inside out",
+    overview:
+      "Most sites treat beauty as cosmetics. PowerFoods treats beauty as an outcome of overall health. Explore how nutrition, hydration, sleep, movement, sun protection, and gentle daily care support healthy skin, hair, and nails — always distinguishing established evidence, emerging research, and traditional use, with no unrealistic claims.",
+    icon: Flower2,
+    accent: "text-ember-500",
+    gradient: "from-ember-400 to-forest-600",
+    popularTopics: ["Skin-nourishing foods", "Skin barrier", "Hair health", "Hydration & skin", "Healthy aging", "Sun protection", "Skincare routines", "Natural glow"],
+    metaDescription:
+      "Explore evidence-based beauty and personal care guides focused on nutrition, healthy habits, skincare, hair care, nail health, hydration, and healthy aging.",
+    learningObjectives: [
+      "How nutrition supports skin, hair, and nails",
+      "What the skin barrier is and how to protect it",
+      "The role of hydration in skin health",
+      "Everyday habits behind a natural glow",
+      "A grounded view of healthy aging",
+      "Sun protection, explained simply",
+      "Building a simple daily skincare routine",
+      "Separating common beauty myths from facts",
+    ],
+    pillarGuide: {
+      title: "The Complete Guide to Healthy Skin, Hair & Nails: A Nutrition and Lifestyle Approach",
+      description:
+        "The flagship guide of the Beauty Resource Center. It frames beauty as a reflection of whole-body health, connecting nutrition, hydration, sleep, and daily care — with every beauty article linking back here.",
+    },
+    guides: [
+      "Foods That Support Healthy Skin",
+      "Understanding the Skin Barrier",
+      "Nutrition and Hair Health",
+      "Hydration and Skin Health",
+      "Everyday Habits That Support Healthy Skin",
+      "Understanding Healthy Aging",
+      "Sun Protection Explained",
+      "Common Beauty Myths",
+      "Building a Simple Daily Skincare Routine",
+    ],
+    faqs: [
+      { q: "Can diet really change my skin?", a: "Skin reflects overall health. Nourishing, hydrating foods can contribute to a natural, lasting glow better than any quick fix." },
+      { q: "Are these expensive routines?", a: "No — the focus is everyday foods and simple rituals, not costly products." },
+      { q: "How soon will I notice a difference?", a: "Skin renews gradually, so give it time. Steady nourishment is what shows up in the mirror." },
+    ],
+  },
+];
+
+export const getCategory = (slug: string) =>
+  categories.find((c) => c.slug === slug);

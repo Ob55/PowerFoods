@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply overflow-x-hidden bg-cream text-ink font-body antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-display tracking-tight;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1480px] px-5 sm:px-8 lg:px-10;
+  }
+  .gradient-border {
+    background-image: linear-gradient(#fff, #fff),
+      linear-gradient(
+        110deg,
+        #84a9fa,
+        #fb6fec,
+        #fba69e,
+        #fdd4a3,
+        #fb6fec,
+        #84a9fa
+      );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-size: 100%, 200%;
+    transition: background-position 0.7s ease;
+  }
+  .gradient-border:hover {
+    background-position: 0 0, 200% 0;
+  }
+  .prose-article p {
+    @apply mb-5 text-lg leading-relaxed text-ink/80;
+  }
+  .prose-article h2 {
+    @apply mt-10 mb-4 text-2xl sm:text-3xl text-forest-800;
+  }
+  .prose-article h3 {
+    @apply mt-8 mb-3 text-xl text-forest-700;
+  }
+  .prose-article ul {
+    @apply mb-6 space-y-2 pl-1;
+  }
+}
