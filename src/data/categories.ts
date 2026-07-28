@@ -46,6 +46,35 @@ export const categories: Category[] = [
     accent: "text-forest-700",
     gradient: "from-forest-600 to-forest-800",
     popularTopics: ["Gut health", "Anti-inflammatory foods", "Heart-healthy eating", "Meal planning", "Seasonal eating"],
+    metaDescription:
+      "Explore evidence-informed healthy eating guides — gut health, anti-inflammatory and heart-healthy foods, balanced meals, and seasonal eating built on whole, everyday foods.",
+    learningObjectives: [
+      "What healthy eating really means — and what it isn't",
+      "Building balanced, satisfying meals without counting",
+      "Foods that support digestion and gut health",
+      "Anti-inflammatory eating, explained simply",
+      "Heart-healthy eating without the confusion",
+      "Choosing healthy fats, fiber, and whole grains",
+      "Cooking and shopping in a way that keeps nutrition in",
+      "Eating with the seasons — and spotting nutrition myths",
+    ],
+    pillarGuide: {
+      title: "The Complete Guide to Healthy Eating: Whole Foods for How You Want to Feel",
+      description:
+        "The cornerstone guide for this resource center — covering balanced meals, gut and heart health, anti-inflammatory foods, healthy fats, and seasonal eating, blending modern nutrition with traditional food wisdom. Every supporting guide links back to it.",
+    },
+    guides: [
+      "Building a Balanced Plate Without Counting",
+      "Foods That Support a Healthy Gut",
+      "Anti-Inflammatory Eating Made Simple",
+      "Heart-Healthy Eating Without the Confusion",
+      "Understanding Fiber and Whole Grains",
+      "Healthy Fats: What to Choose and Why",
+      "Cooking Methods That Preserve Nutrition",
+      "How to Read Food Labels With Confidence",
+      "Eating With the Seasons",
+      "Common Nutrition Myths",
+    ],
     faqs: [
       { q: "What does 'healthy eating' actually mean here?", a: "It means choosing whole, everyday foods with intention — matching what you eat to how you want to feel, rather than following restrictive fad diets." },
       { q: "Do I have to give up foods I love?", a: "No. This approach is about balance and swaps, not deprivation. Small, steady changes are what actually last." },
@@ -62,6 +91,35 @@ export const categories: Category[] = [
     accent: "text-ember-600",
     gradient: "from-ember-500 to-ember-600",
     popularTopics: ["Joint comfort", "Mobility", "Recovery foods", "Gentle movement", "Everyday strength"],
+    metaDescription:
+      "Discover gentle, sustainable movement and the foods that support mobility, recovery, and everyday strength — joint-friendly fitness guides you can keep up for the long game.",
+    learningObjectives: [
+      "Why movement matters at every age",
+      "Building a gentle, sustainable movement routine",
+      "Warming up and protecting your joints",
+      "Foods that support recovery and comfort",
+      "Building everyday strength without a gym",
+      "Improving mobility and balance",
+      "Staying active on a busy schedule",
+      "Separating common fitness myths from facts",
+    ],
+    pillarGuide: {
+      title: "The Complete Guide to Gentle, Sustainable Fitness: Move Well for the Long Game",
+      description:
+        "The cornerstone guide of the Fitness hub — introducing gentle movement, joint care, recovery nutrition, and everyday strength, so every supporting guide can show you how to put one practice to work. Every guide links back to it.",
+    },
+    guides: [
+      "Building a Gentle Movement Routine That Lasts",
+      "Walking as Everyday Exercise",
+      "Warming Up and Cooling Down Safely",
+      "Foods That Support Recovery",
+      "Protecting Your Joints as You Move",
+      "Building Everyday Strength Without a Gym",
+      "Improving Mobility and Balance",
+      "Gentle Movement: Stretching and Qi Gong",
+      "Staying Active on a Busy Schedule",
+      "Common Fitness Myths",
+    ],
     faqs: [
       { q: "Do I need a gym to use these guides?", a: "Not at all. We focus on gentle, accessible movement — like walking, stretching, and Qi Gong — that fits into everyday life." },
       { q: "Can food really help with joint comfort?", a: "Warming, nourishing foods are traditionally used to support comfortable, mobile joints. Our guides show you which ones and why." },
