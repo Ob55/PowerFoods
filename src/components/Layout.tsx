@@ -134,7 +134,7 @@ function Header() {
 
       {/* Category bar (desktop) — pill nav with icons */}
       <nav className="hidden border-b border-black/5 bg-white/70 backdrop-blur lg:block">
-        <div className="container-x flex items-center gap-2 overflow-x-auto py-2.5">
+        <div className="container-x flex items-center justify-end gap-2 overflow-x-auto py-2.5">
           {categories.map((c) => {
             const Icon = c.icon;
             const accent = c.theme?.accentText ?? "text-forest-700";
