@@ -132,23 +132,39 @@ function Header() {
         </div>
       </div>
 
-      {/* Category bar (desktop) */}
-      <nav className="hidden border-b border-black/5 bg-cream/60 lg:block">
-        <div className="container-x flex items-center gap-1 overflow-x-auto">
-          {categories.map((c) => (
-            <NavLink
-              key={c.slug}
-              to={`/category/${c.slug}`}
-              className={({ isActive }) =>
-                cn(
-                  "whitespace-nowrap px-3 py-3 text-sm font-semibold transition-colors hover:text-forest-700",
-                  isActive ? "text-forest-800" : "text-ink/65"
-                )
-              }
-            >
-              {navLabel(c.slug, c.name)}
-            </NavLink>
-          ))}
+      {/* Category bar (desktop) — pill nav with icons */}
+      <nav className="hidden border-b border-black/5 bg-white/70 backdrop-blur lg:block">
+        <div className="container-x flex items-center gap-2 overflow-x-auto py-2.5">
+          {categories.map((c) => {
+            const Icon = c.icon;
+            const accent = c.theme?.accentText ?? "text-forest-700";
+            return (
+              <NavLink
+                key={c.slug}
+                to={`/category/${c.slug}`}
+                className={({ isActive }) =>
+                  cn(
+                    "group flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200",
+                    isActive
+                      ? "bg-forest-800 text-white shadow-soft"
+                      : "text-ink/70 hover:bg-cream hover:text-forest-800"
+                  )
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    <Icon
+                      className={cn(
+                        "h-4 w-4 transition-colors",
+                        isActive ? "text-white" : accent
+                      )}
+                    />
+                    {navLabel(c.slug, c.name)}
+                  </>
+                )}
+              </NavLink>
+            );
+          })}
         </div>
       </nav>
 
@@ -156,13 +172,24 @@ function Header() {
       {open && (
         <div className="border-b border-black/5 bg-cream lg:hidden">
           <div className="container-x flex flex-col py-4">
-            <p className="pb-2 text-xs font-bold uppercase tracking-wide text-ink/40">Wellness Topics</p>
-            {categories.map((c) => (
-              <Link key={c.slug} to={`/category/${c.slug}`} className="py-2 text-sm font-semibold text-ink/75">
-                {c.name}
-              </Link>
-            ))}
-            <p className="pb-2 pt-4 text-xs font-bold uppercase tracking-wide text-ink/40">Resources</p>
+            <p className="pb-2 text-xs font-bold uppercase tracking-wide text-ink/40">Resource Centers</p>
+            <div className="grid grid-cols-2 gap-2">
+              {categories.map((c) => {
+                const Icon = c.icon;
+                const accent = c.theme?.accentText ?? "text-forest-700";
+                return (
+                  <Link
+                    key={c.slug}
+                    to={`/category/${c.slug}`}
+                    className="flex items-center gap-2 rounded-xl bg-cream px-3 py-2.5 text-sm font-semibold text-ink/75"
+                  >
+                    <Icon className={cn("h-4 w-4", accent)} />
+                    {navLabel(c.slug, c.name)}
+                  </Link>
+                );
+              })}
+            </div>
+            <p className="pb-2 pt-5 text-xs font-bold uppercase tracking-wide text-ink/40">Resources</p>
             {resourceLinks.map((r) => (
               <Link key={r.label} to={r.to} className="py-1.5 text-sm text-ink/70">
                 {r.label}

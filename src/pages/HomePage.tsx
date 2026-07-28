@@ -42,7 +42,15 @@ function Hero() {
             className="mt-6 text-4xl font-extrabold leading-[1.05] text-forest-900 sm:text-5xl xl:text-6xl"
           >
             Natural Wellness Starts With{" "}
-            <span className="text-ember-600">Everyday Food</span>
+            <span className="relative whitespace-nowrap text-ember-600">
+              Everyday Food
+              <motion.span
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 0.5, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute -bottom-1 left-0 h-1 w-full origin-left rounded-full bg-ember-400/60"
+              />
+            </span>
           </motion.h1>
 
           <motion.p
@@ -86,10 +94,12 @@ function Hero() {
           className="relative hidden lg:block"
         >
           <div className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-2/3 w-2/3 rounded-full bg-forest-300/40 blur-3xl" />
-          <img
+          <motion.img
             src="/products/book-main.png"
             alt="The Encyclopedia of Power Foods — our featured resource"
             className="mx-auto w-full max-w-sm drop-shadow-2xl"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           />
           <p className="mt-3 text-center text-xs font-semibold uppercase tracking-wide text-ink/40">
             Featured resource
@@ -105,17 +115,19 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* Featured categories */}
+      {/* The ecosystem — Resource Centers */}
       <Section id="categories">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <span className="text-sm font-bold uppercase tracking-wide text-forest-600">
-              Explore by goal
-            </span>
-            <h2 className="mt-1 text-3xl font-bold text-forest-900 sm:text-4xl">
-              Featured Resource Centers
-            </h2>
-          </div>
+        <div className="max-w-2xl">
+          <span className="text-sm font-bold uppercase tracking-wide text-forest-600">
+            One connected ecosystem
+          </span>
+          <h2 className="mt-1 text-3xl font-bold text-forest-900 sm:text-4xl">
+            {categories.length} Resource Centers
+          </h2>
+          <p className="mt-3 text-ink/70">
+            Each center is its own landing page — nutrition, movement, sleep, mind, habits,
+            and beauty — all linking back to the same whole-food philosophy.
+          </p>
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((c, i) => (
@@ -124,7 +136,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
+              transition={{ duration: 0.5, delay: (i % 4) * 0.05, ease: [0.16, 1, 0.3, 1] }}
             >
               <CategoryCard category={c} />
             </motion.div>

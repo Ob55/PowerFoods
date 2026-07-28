@@ -12,6 +12,7 @@ import { remedies } from "@/data/remedies";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { FeaturedResource } from "@/components/FeaturedResource";
 import { ArticleCard } from "@/components/ArticleCard";
+import { Reveal } from "@/components/Reveal";
 import NotFound from "./NotFound";
 
 function Block({ block }: { block: ArticleBlock }) {
@@ -84,12 +85,14 @@ export default function ArticlePage() {
           {/* Body */}
           <div>
             {/* Quick Summary */}
-            <div className="rounded-2xl border border-forest-100 bg-forest-50 p-6">
-              <p className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-forest-700">
-                <Sparkles className="h-4 w-4 text-ember-500" /> Quick Summary
-              </p>
-              <p className="mt-2 text-ink/80">{article.summary}</p>
-            </div>
+            <Reveal y={16}>
+              <div className="rounded-2xl border border-forest-100 bg-forest-50 p-6">
+                <p className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-forest-700">
+                  <Sparkles className="h-4 w-4 text-ember-500" /> Quick Summary
+                </p>
+                <p className="mt-2 text-ink/80">{article.summary}</p>
+              </div>
+            </Reveal>
 
             {/* Main content */}
             <div className="prose-article mt-8">
@@ -99,19 +102,21 @@ export default function ArticlePage() {
             </div>
 
             {/* Key Takeaways */}
-            <div className="mt-10 rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5">
-              <p className="flex items-center gap-2 font-display text-lg font-bold text-forest-900">
-                <Lightbulb className="h-5 w-5 text-ember-500" /> Key Takeaways
-              </p>
-              <ul className="mt-4 space-y-3">
-                {article.keyTakeaways.map((t) => (
-                  <li key={t} className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-forest-600" />
-                    <span className="text-ink/80">{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Reveal className="mt-10">
+              <div className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-black/5">
+                <p className="flex items-center gap-2 font-display text-lg font-bold text-forest-900">
+                  <Lightbulb className="h-5 w-5 text-ember-500" /> Key Takeaways
+                </p>
+                <ul className="mt-4 space-y-3">
+                  {article.keyTakeaways.map((t) => (
+                    <li key={t} className="flex items-start gap-3">
+                      <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-forest-600" />
+                      <span className="text-ink/80">{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
           </div>
 
           {/* Sidebar */}
@@ -141,65 +146,75 @@ export default function ArticlePage() {
         </div>
 
         {/* FAQ */}
-        <div className="mt-16">
+        <Reveal className="mt-16">
           <h2 className="text-2xl font-bold text-forest-900">Frequently Asked Questions</h2>
           <div className="mt-6">
             <FaqAccordion faqs={article.faqs} />
           </div>
-        </div>
+        </Reveal>
 
         {/* Related Articles */}
         <div className="mt-16">
-          <h2 className="text-2xl font-bold text-forest-900">Related Articles</h2>
+          <Reveal>
+            <h2 className="text-2xl font-bold text-forest-900">Related Articles</h2>
+          </Reveal>
           <div className="mt-6 grid gap-6 sm:grid-cols-3">
-            {related.map((a) => (
-              <ArticleCard key={a.slug} article={a} />
+            {related.map((a, i) => (
+              <Reveal key={a.slug} delay={(i % 3) * 0.08}>
+                <ArticleCard article={a} />
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Resource Center CTA */}
         {category && (
-          <Link
-            to={`/category/${category.slug}`}
-            className={`mt-16 flex flex-col items-start justify-between gap-4 rounded-3xl bg-gradient-to-br ${category.gradient} p-8 text-white sm:flex-row sm:items-center`}
-          >
-            <div>
-              <p className="text-xs font-bold uppercase tracking-wide text-white/70">Resource Center</p>
-              <p className="mt-1 font-display text-2xl font-bold">Explore more in {category.name}</p>
-              <p className="mt-1 text-white/80">{category.tagline}</p>
-            </div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-6 py-3 font-semibold">
-              Visit hub <ArrowRight className="h-4 w-4" />
-            </span>
-          </Link>
+          <Reveal className="mt-16">
+            <Link
+              to={`/category/${category.slug}`}
+              className={`flex flex-col items-start justify-between gap-4 rounded-3xl bg-gradient-to-br ${category.gradient} p-8 text-white sm:flex-row sm:items-center`}
+            >
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wide text-white/70">Resource Center</p>
+                <p className="mt-1 font-display text-2xl font-bold">Explore more in {category.name}</p>
+                <p className="mt-1 text-white/80">{category.tagline}</p>
+              </div>
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-6 py-3 font-semibold">
+                Visit hub <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+          </Reveal>
         )}
 
         {/* Natural Remedies Library */}
         <div className="mt-16">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="text-2xl font-bold text-forest-900">From the Natural Remedies Library</h2>
-            <Link to="/resources/natural-remedies" className="hidden items-center gap-1 font-semibold text-forest-700 hover:text-ember-600 sm:flex">
-              View all <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+          <Reveal>
+            <div className="flex items-end justify-between gap-4">
+              <h2 className="text-2xl font-bold text-forest-900">From the Natural Remedies Library</h2>
+              <Link to="/resources/natural-remedies" className="hidden items-center gap-1 font-semibold text-forest-700 hover:text-ember-600 sm:flex">
+                View all <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </Reveal>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {remedies.slice(0, 4).map((r) => (
-              <div key={r.name} className="rounded-2xl bg-white p-5 shadow-soft ring-1 ring-black/5">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">{r.emoji}</span>
-                  <p className="font-display font-bold text-forest-900">{r.name}</p>
+            {remedies.slice(0, 4).map((r, i) => (
+              <Reveal key={r.name} delay={(i % 4) * 0.06}>
+                <div className="rounded-2xl bg-white p-5 shadow-soft ring-1 ring-black/5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">{r.emoji}</span>
+                    <p className="font-display font-bold text-forest-900">{r.name}</p>
+                  </div>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-ember-600">{r.use}</p>
                 </div>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-ember-600">{r.use}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Recommended Resource */}
-        <div className="mt-16">
+        <Reveal className="mt-16">
           <FeaturedResource />
-        </div>
+        </Reveal>
 
         <div className="mt-10">
           <Link to="/#trending" className="inline-flex items-center gap-1.5 text-sm font-semibold text-forest-700 hover:text-ember-600">

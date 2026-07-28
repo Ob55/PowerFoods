@@ -6,12 +6,57 @@ import {
   Brain,
   Sparkles,
   Flower2,
+  // motif icons for per-category hero backdrops
+  Leaf,
+  Apple,
+  Carrot,
+  Wheat,
+  Activity,
+  HeartPulse,
+  Footprints,
+  Bike,
+  Timer,
+  Star,
+  Cloud,
+  Stars,
+  BedDouble,
+  HeartHandshake,
+  Wind,
+  Smile,
+  CheckCircle2,
+  Sunrise,
+  Repeat,
+  Target,
+  Droplet,
+  Sun,
+  Gem,
   type LucideIcon,
 } from "lucide-react";
 
 export interface PillarGuide {
   title: string;
   description: string;
+}
+
+/**
+ * Per-category visual theme used to give each Resource Center a distinct,
+ * animated landing page. All Tailwind class values MUST be complete literal
+ * strings (never concatenated) so the JIT compiler can see them.
+ */
+export interface CategoryTheme {
+  /** Hero background gradient stops, e.g. "from-indigo-950 via-slate-900 to-indigo-900". */
+  heroGradient: string;
+  /** Blurred decorative blob colors behind the hero. */
+  blobA: string;
+  blobB: string;
+  /** Accent text color for eyebrow labels / links. */
+  accentText: string;
+  /** Soft accent surface for icon tiles. */
+  accentBg: string;
+  /** Accent hover background for chips / cards. */
+  chipHover: string;
+  /** 3–5 icons that gently drift across the hero backdrop. */
+  floatIcons: LucideIcon[];
 }
 
 export interface Category {
@@ -32,6 +77,8 @@ export interface Category {
   pillarGuide?: PillarGuide;
   /** Supporting guides that make up this resource center. */
   guides?: string[];
+  /** Per-category visual theme for the landing page. */
+  theme?: CategoryTheme;
 }
 
 // The 7 permanent Resource Centers (evergreen pillar pages).
@@ -45,6 +92,15 @@ export const categories: Category[] = [
     icon: Salad,
     accent: "text-forest-700",
     gradient: "from-forest-600 to-forest-800",
+    theme: {
+      heroGradient: "from-forest-700 via-forest-800 to-emerald-900",
+      blobA: "bg-emerald-400/25",
+      blobB: "bg-lime-300/20",
+      accentText: "text-forest-700",
+      accentBg: "bg-forest-50",
+      chipHover: "hover:bg-forest-700",
+      floatIcons: [Salad, Leaf, Apple, Carrot, Wheat],
+    },
     popularTopics: ["Gut health", "Anti-inflammatory foods", "Heart-healthy eating", "Meal planning", "Seasonal eating"],
     metaDescription:
       "Explore evidence-informed healthy eating guides — gut health, anti-inflammatory and heart-healthy foods, balanced meals, and seasonal eating built on whole, everyday foods.",
@@ -90,6 +146,15 @@ export const categories: Category[] = [
     icon: Dumbbell,
     accent: "text-ember-600",
     gradient: "from-ember-500 to-ember-600",
+    theme: {
+      heroGradient: "from-ember-500 via-orange-600 to-amber-700",
+      blobA: "bg-amber-300/30",
+      blobB: "bg-ember-400/25",
+      accentText: "text-ember-600",
+      accentBg: "bg-orange-50",
+      chipHover: "hover:bg-ember-600",
+      floatIcons: [Dumbbell, Activity, HeartPulse, Footprints, Bike],
+    },
     popularTopics: ["Joint comfort", "Mobility", "Recovery foods", "Gentle movement", "Everyday strength"],
     metaDescription:
       "Discover gentle, sustainable movement and the foods that support mobility, recovery, and everyday strength — joint-friendly fitness guides you can keep up for the long game.",
@@ -135,6 +200,15 @@ export const categories: Category[] = [
     icon: Scale,
     accent: "text-forest-700",
     gradient: "from-forest-500 to-forest-700",
+    theme: {
+      heroGradient: "from-teal-700 via-forest-800 to-forest-900",
+      blobA: "bg-teal-300/25",
+      blobB: "bg-emerald-400/20",
+      accentText: "text-teal-700",
+      accentBg: "bg-teal-50",
+      chipHover: "hover:bg-teal-700",
+      floatIcons: [Scale, Apple, Footprints, Timer, Salad],
+    },
     popularTopics: ["Healthy weight", "Protein", "Fiber", "Calories", "Meal planning", "Portion sizes", "Mindful eating", "Walking", "Sustainable habits", "Weight maintenance"],
     metaDescription:
       "Learn evidence-based strategies for achieving and maintaining a healthy weight through nutrition, physical activity, sleep, stress management, and sustainable habits.",
@@ -180,6 +254,15 @@ export const categories: Category[] = [
     icon: Moon,
     accent: "text-forest-800",
     gradient: "from-forest-700 to-forest-900",
+    theme: {
+      heroGradient: "from-indigo-950 via-slate-900 to-indigo-900",
+      blobA: "bg-indigo-400/25",
+      blobB: "bg-violet-400/20",
+      accentText: "text-indigo-600",
+      accentBg: "bg-indigo-50",
+      chipHover: "hover:bg-indigo-600",
+      floatIcons: [Moon, Star, Cloud, Stars, BedDouble],
+    },
     popularTopics: ["Sleep hygiene", "Evening foods", "Caffeine & sleep", "Bedtime routines", "Stress & sleep", "Morning habits", "Wind-down rituals", "Deep rest"],
     metaDescription:
       "Discover science-backed strategies to improve sleep quality through nutrition, healthy habits, relaxation techniques, and sleep hygiene. Learn practical ways to support restful sleep naturally.",
@@ -223,6 +306,15 @@ export const categories: Category[] = [
     icon: Brain,
     accent: "text-sap",
     gradient: "from-sap to-forest-700",
+    theme: {
+      heroGradient: "from-violet-800 via-purple-800 to-forest-800",
+      blobA: "bg-violet-400/25",
+      blobB: "bg-fuchsia-300/20",
+      accentText: "text-violet-700",
+      accentBg: "bg-violet-50",
+      chipHover: "hover:bg-violet-700",
+      floatIcons: [Brain, Sparkles, HeartHandshake, Wind, Smile],
+    },
     popularTopics: ["Stress management", "Nutrition & mood", "Exercise & mood", "Digital wellness", "Daily routines", "Mindfulness", "Brain health", "Resilience"],
     metaDescription:
       "Explore evidence-based strategies to support mental wellness through nutrition, sleep, physical activity, stress management, mindfulness, and healthy daily habits.",
@@ -266,6 +358,15 @@ export const categories: Category[] = [
     icon: Sparkles,
     accent: "text-ember-600",
     gradient: "from-ember-400 to-ember-600",
+    theme: {
+      heroGradient: "from-amber-500 via-ember-500 to-orange-700",
+      blobA: "bg-amber-300/30",
+      blobB: "bg-ember-400/20",
+      accentText: "text-ember-600",
+      accentBg: "bg-amber-50",
+      chipHover: "hover:bg-ember-600",
+      floatIcons: [Sparkles, CheckCircle2, Sunrise, Repeat, Target],
+    },
     popularTopics: ["Habit building", "Morning routines", "Evening routines", "Meal planning", "Hydration", "Staying active", "Digital wellness", "Consistency"],
     metaDescription:
       "Learn evidence-based daily habits that support long-term health. Discover practical routines for nutrition, movement, hydration, sleep, stress management, and overall well-being.",
@@ -311,6 +412,15 @@ export const categories: Category[] = [
     icon: Flower2,
     accent: "text-ember-500",
     gradient: "from-ember-400 to-forest-600",
+    theme: {
+      heroGradient: "from-rose-500 via-pink-600 to-ember-500",
+      blobA: "bg-rose-300/30",
+      blobB: "bg-ember-400/20",
+      accentText: "text-rose-600",
+      accentBg: "bg-rose-50",
+      chipHover: "hover:bg-rose-600",
+      floatIcons: [Flower2, Sparkles, Droplet, Sun, Gem],
+    },
     popularTopics: ["Skin-nourishing foods", "Skin barrier", "Hair health", "Hydration & skin", "Healthy aging", "Sun protection", "Skincare routines", "Natural glow"],
     metaDescription:
       "Explore evidence-based beauty and personal care guides focused on nutrition, healthy habits, skincare, hair care, nail health, hydration, and healthy aging.",

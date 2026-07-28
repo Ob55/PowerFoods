@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Download, Gift, Heart, PartyPopper } from "lucide-react";
 import { product } from "@/data/product";
+import { Reveal } from "@/components/Reveal";
 
 export default function BonusPage() {
   return (
@@ -25,7 +26,8 @@ export default function BonusPage() {
         </p>
 
         {/* Bonus download card */}
-        <div className="mt-10 rounded-3xl bg-white p-8 text-left shadow-soft ring-1 ring-black/5">
+        <Reveal className="mt-10">
+        <div className="rounded-3xl bg-white p-8 text-left shadow-soft ring-1 ring-black/5">
           <div className="flex items-start gap-4">
             <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-ember-400/15 text-ember-600">
               <Gift className="h-7 w-7" />
@@ -52,8 +54,10 @@ export default function BonusPage() {
             PDF · opens in a new tab, or check your Downloads folder
           </p>
         </div>
+        </Reveal>
 
-        <div className="mt-10 rounded-2xl border border-forest-100 bg-forest-50 p-6 text-left">
+        <Reveal className="mt-10">
+        <div className="rounded-2xl border border-forest-100 bg-forest-50 p-6 text-left">
           <p className="flex items-center gap-2 font-display font-bold text-forest-800">
             <Heart className="h-5 w-5 text-ember-500" /> A quick tip before you dive in
           </p>
@@ -64,6 +68,7 @@ export default function BonusPage() {
             stick.
           </p>
         </div>
+        </Reveal>
 
         <p className="mt-8 text-sm text-ink/60">
           Didn't receive your book yet? Check your spam folder, or your
