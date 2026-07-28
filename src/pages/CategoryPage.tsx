@@ -5,7 +5,6 @@ import {
   ArrowDown,
   BookOpen,
   CheckCircle2,
-  FileText,
   Star,
   ShieldCheck,
   Leaf,
@@ -20,8 +19,10 @@ import { CTAButton } from "@/components/CTAButton";
 import { BlurText } from "@/components/BlurText";
 import { Reveal } from "@/components/Reveal";
 import { FloatingMotif } from "@/components/FloatingMotif";
+import { GuideAccordion } from "@/components/GuideAccordion";
 import { categories, getCategory, type CategoryTheme } from "@/data/categories";
 import { getArticlesByCategory } from "@/data/articles";
+import { getGuides } from "@/data/guides";
 import NotFound from "./NotFound";
 
 // Fallback theme for any category that hasn't defined its own.
@@ -64,7 +65,8 @@ export default function CategoryPage() {
   const related = categories.filter((c) => c.slug !== category.slug).slice(0, 4);
   const Icon = category.icon;
   const theme = category.theme ?? defaultTheme;
-  const guideCount = category.guides?.length ?? 0;
+  const guides = getGuides(category.slug);
+  const guideCount = guides.length || category.guides?.length || 0;
 
   const stats = [
     { value: `${guideCount || posts.length}+`, label: "in-depth guides" },
@@ -263,37 +265,28 @@ export default function CategoryPage() {
         </Section>
       )}
 
-      {/* ============ GUIDES GRID ============ */}
-      {category.guides && category.guides.length > 0 && (
+      {/* ============ GUIDES — click to expand ============ */}
+      {guides.length > 0 && (
         <Section id="guides">
           <div className="max-w-2xl">
             <span className={`text-sm font-bold uppercase tracking-wide ${theme.accentText}`}>
               The library
             </span>
             <h2 className="mt-1 text-3xl font-bold text-forest-900 sm:text-4xl">
-              {category.guides.length} guides inside this center
+              {guides.length} guides inside this center
             </h2>
             <p className="mt-3 text-ink/70">
-              In-depth, evidence-informed guides — each one links back to the cornerstone above.
+              Tap any guide to read it. Each one is short, evidence-informed, and
+              links back to the cornerstone above.
             </p>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {category.guides.map((g, i) => (
-              <Reveal key={g} delay={(i % 3) * 0.06}>
-                <Link
-                  to={`/search?q=${encodeURIComponent(g)}`}
-                  className="group flex h-full items-start gap-3 rounded-2xl bg-white p-5 shadow-soft ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <span className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl ${theme.accentBg} ${theme.accentText} transition-transform group-hover:scale-110`}>
-                    <FileText className="h-4 w-4" />
-                  </span>
-                  <span className="font-semibold text-forest-900 group-hover:text-forest-700">
-                    {g}
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal className="mt-10">
+            <GuideAccordion
+              items={guides}
+              accentText={theme.accentText}
+              accentBg={theme.accentBg}
+            />
+          </Reveal>
         </Section>
       )}
 
