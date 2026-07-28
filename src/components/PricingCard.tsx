@@ -48,7 +48,7 @@ export function PricingCard({ className }: { className?: string }) {
       </ul>
 
       <CTAButton size="lg" className="mt-8 w-full">
-        Get Instant Access — ${product.price}
+        Get Instant Access, ${product.price}
       </CTAButton>
       <p className="mt-3 text-center text-xs text-ink/50">
         Secure checkout via Digistore24 · instant download

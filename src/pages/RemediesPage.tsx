@@ -27,7 +27,7 @@ export default function RemediesPage() {
           </span>
           <h1 className="mt-6 text-4xl font-extrabold sm:text-5xl">Natural Remedies Library</h1>
           <p className="mt-4 max-w-2xl text-lg text-white/80">
-            An evergreen reference of everyday foods and traditional remedies — what
+            An evergreen reference of everyday foods and traditional remedies, what
             they're used for and how they fit into a natural, food-first lifestyle.
           </p>
         </div>

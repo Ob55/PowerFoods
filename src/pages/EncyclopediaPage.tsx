@@ -10,10 +10,10 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { product } from "@/data/product";
 
 const encyclopediaFaqs = [
-  { q: "Is this a physical book?", a: "It's a digital edition — you get instant access to download and read on any device the moment you order." },
+  { q: "Is this a physical book?", a: "It's a digital edition, you get instant access to download and read on any device the moment you order." },
   { q: "Do I need any prior knowledge?", a: "None at all. The guide is written for everyday readers and organizes 300+ foods by how you want to feel." },
-  { q: "How is this different from the free articles?", a: "The articles are a great starting point. The Encyclopedia is the complete reference — every food, the full Five Elements system, seasonal guidance, and practices in one place." },
-  { q: "What if it's not for me?", a: `You're covered by a ${product.guaranteeDays}-day money-back guarantee. If it isn't a fit, request a full refund — and keep the free bonus as our thanks.` },
+  { q: "How is this different from the free articles?", a: "The articles are a great starting point. The Encyclopedia is the complete reference, every food, the full Five Elements system, seasonal guidance, and practices in one place." },
+  { q: "What if it's not for me?", a: `You're covered by a ${product.guaranteeDays}-day money-back guarantee. If it isn't a fit, request a full refund, and keep the free bonus as our thanks.` },
   { q: "Is this medical advice?", a: "No. It's an educational resource rooted in Traditional Chinese Medicine and modern nutrition. Always consult a healthcare professional for medical concerns." },
 ];
 
@@ -55,7 +55,7 @@ export default function EncyclopediaPage() {
             <div className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-3/4 w-3/4 rounded-full bg-forest-300/40 blur-3xl" />
             <img
               src="/products/book-main.png"
-              alt="The Encyclopedia of Power Foods — book, tablet and phone editions"
+              alt="The Encyclopedia of Power Foods, book, tablet and phone editions"
               className="mx-auto w-full max-w-xl drop-shadow-2xl"
             />
           </motion.div>
@@ -69,14 +69,14 @@ export default function EncyclopediaPage() {
           <p>
             In remote mountain regions of China, communities have long been known
             for their longevity and vitality. Their secret wasn't a rare drug or a
-            new gadget — it was a deep, practical understanding of food: which foods
+            new gadget, it was a deep, practical understanding of food: which foods
             warm and which cool, which build energy and which calm the mind, and how
             to match them to the seasons and to how a person feels.
           </p>
           <p>
             That knowledge is the heart of Traditional Chinese Medicine's approach to
             nutrition. The Encyclopedia of Power Foods translates this time-tested
-            system into something you can actually use at your next meal — a premium,
+            system into something you can actually use at your next meal, a premium,
             optional companion to everything you'll read across this publication.
           </p>
         </div>

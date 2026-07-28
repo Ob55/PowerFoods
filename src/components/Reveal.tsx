@@ -11,7 +11,7 @@ interface RevealProps {
   y?: number;
 }
 
-/** Fades and rises a single element into view on scroll — matches the site's expo-out easing. */
+/** Fades and rises a single element into view on scroll, matches the site's expo-out easing. */
 export function Reveal({ children, className, delay = 0, y = 24 }: RevealProps) {
   return (
     <motion.div

@@ -17,7 +17,7 @@ export function GuaranteeBadge({ className }: { className?: string }) {
         </p>
         <p className="text-sm leading-relaxed text-ink/70">
           Read it, try the foods, and see how you feel. If it isn't for you,
-          request a full refund within {product.guaranteeDays} days — no hard
+          request a full refund within {product.guaranteeDays} days, no hard
           feelings, and you keep the free bonus as our thanks.
         </p>
       </div>

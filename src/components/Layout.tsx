@@ -132,7 +132,7 @@ function Header() {
         </div>
       </div>
 
-      {/* Category bar (desktop) — pill nav with icons */}
+      {/* Category bar (desktop), pill nav with icons */}
       <nav className="hidden border-b border-black/5 bg-white/70 backdrop-blur lg:block">
         <div className="container-x flex items-center justify-center gap-2 overflow-x-auto py-2.5">
           {categories.map((c) => {
@@ -215,7 +215,7 @@ function Footer() {
         <div>
           <Logo light />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">
-            A natural wellness publication — evidence-informed nutrition, fitness,
+            A natural wellness publication, evidence-informed nutrition, fitness,
             and healthy-living guides for a healthier everyday life.
           </p>
           <div className="mt-6 flex flex-col gap-2.5 text-sm text-cream/60">

@@ -5,7 +5,7 @@ import { product } from "@/data/product";
 import { cn } from "@/lib/utils";
 
 /**
- * "Featured Resource" band — presents the Encyclopedia as one premium,
+ * "Featured Resource" band, presents the Encyclopedia as one premium,
  * optional resource inside the publication (education before selling).
  */
 export function FeaturedResource({ className }: { className?: string }) {

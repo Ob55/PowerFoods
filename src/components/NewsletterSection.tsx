@@ -16,7 +16,7 @@ export function NewsletterSection() {
           Get the weekly wellness digest
         </h2>
         <p className="mt-3 text-ink/70">
-          Practical nutrition guides, healthy habits, and natural-living tips —
+          Practical nutrition guides, healthy habits, and natural-living tips , 
           straight to your inbox. No spam, unsubscribe anytime.
         </p>
 

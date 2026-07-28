@@ -9,7 +9,7 @@ export default function NotFound() {
       </span>
       <h1 className="mt-6 font-display text-5xl font-extrabold text-forest-900">404</h1>
       <p className="mt-3 text-lg text-ink/70">
-        We couldn't find that page — but your journey to better health is still
+        We couldn't find that page, but your journey to better health is still
         here.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">

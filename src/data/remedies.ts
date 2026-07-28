@@ -1,4 +1,4 @@
-// Natural Remedies Library — evergreen reference entries.
+// Natural Remedies Library, evergreen reference entries.
 export interface Remedy {
   name: string;
   emoji: string;
@@ -12,7 +12,7 @@ export const remedies: Remedy[] = [
     name: "Ginger",
     emoji: "🫚",
     use: "Digestion & nausea",
-    blurb: "Warming and settling — traditionally used to ease bloating, calm the stomach, and gently wake up sluggish digestion.",
+    blurb: "Warming and settling, traditionally used to ease bloating, calm the stomach, and gently wake up sluggish digestion.",
     bestFor: "Digestion",
   },
   {
@@ -40,7 +40,7 @@ export const remedies: Remedy[] = [
     name: "Peppermint",
     emoji: "🌿",
     use: "Digestion & focus",
-    blurb: "Cooling and refreshing — used to soothe the stomach and lift a foggy, tired mind.",
+    blurb: "Cooling and refreshing, used to soothe the stomach and lift a foggy, tired mind.",
     bestFor: "Digestion",
   },
   {
@@ -68,7 +68,7 @@ export const remedies: Remedy[] = [
     name: "Lemon",
     emoji: "🍋",
     use: "Freshness & vitality",
-    blurb: "Bright and cleansing — a simple morning ritual many use to feel fresh and awake.",
+    blurb: "Bright and cleansing, a simple morning ritual many use to feel fresh and awake.",
     bestFor: "Energy",
   },
   {
@@ -89,7 +89,7 @@ export const remedies: Remedy[] = [
     name: "Mint & Citrus Peel",
     emoji: "🍊",
     use: "Mood & flow",
-    blurb: "Aromatic and uplifting — used to help energy move freely and take the edge off a tense day.",
+    blurb: "Aromatic and uplifting, used to help energy move freely and take the edge off a tense day.",
     bestFor: "Mood",
   },
 ];

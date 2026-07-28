@@ -7,7 +7,7 @@ export const product = {
   pages: 375,
   guaranteeDays: 30,
   summary:
-    "A 375-page practical guide to over 300 everyday 'power foods' — drawn from Traditional Chinese Medicine and modern nutrition — organized so you can match the right foods to how you actually want to feel: more energy, calmer digestion, deeper sleep, and steady, lasting vitality.",
+    "A 375-page practical guide to over 300 everyday 'power foods', drawn from Traditional Chinese Medicine and modern nutrition, organized so you can match the right foods to how you actually want to feel: more energy, calmer digestion, deeper sleep, and steady, lasting vitality.",
 
   // The Five Elements framework used to organize foods (from the TCM system).
   fiveElements: [
@@ -46,7 +46,7 @@ export const product = {
   whatsInside: [
     "Over 300 power foods, each with its properties, best uses, and simple ways to add it to meals",
     "The Five Elements system that matches foods to how you want to feel",
-    "Color-coded food therapy — green, red, yellow, white and black-blue foods and what each supports",
+    "Color-coded food therapy, green, red, yellow, white and black-blue foods and what each supports",
     "Seasonal eating guidance so your plate changes with the year",
     "Gentle movement & breathing basics (Tai Chi, Qi Gong, mindfulness) to pair with the foods",
     "Simple, budget-friendly swaps using ingredients you can find at any grocery store",
@@ -65,7 +65,7 @@ export const product = {
   bonus: {
     name: "The 7-Day Power Foods Quick-Start",
     blurb:
-      "An exclusive companion guide — a simple 7-day plan so you know exactly which power foods to eat first, without reading all 375 pages on day one.",
+      "An exclusive companion guide, a simple 7-day plan so you know exactly which power foods to eat first, without reading all 375 pages on day one.",
     file: "/bonus/Power-Foods-QuickStart.pdf",
   },
 };

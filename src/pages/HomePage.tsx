@@ -96,7 +96,7 @@ function Hero() {
           <div className="pointer-events-none absolute inset-0 -z-10 mx-auto my-auto h-2/3 w-2/3 rounded-full bg-forest-300/40 blur-3xl" />
           <motion.img
             src="/products/book-main.png"
-            alt="The Encyclopedia of Power Foods — our featured resource"
+            alt="The Encyclopedia of Power Foods, our featured resource"
             className="mx-auto w-full max-w-sm drop-shadow-2xl"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
@@ -115,7 +115,7 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* The ecosystem — Resource Centers */}
+      {/* The ecosystem, Resource Centers */}
       <Section id="categories">
         <div className="max-w-2xl">
           <span className="text-sm font-bold uppercase tracking-wide text-forest-600">
@@ -125,8 +125,8 @@ export default function HomePage() {
             {categories.length} Resource Centers
           </h2>
           <p className="mt-3 text-ink/70">
-            Each center is its own landing page — nutrition, movement, sleep, mind, habits,
-            and beauty — all linking back to the same whole-food philosophy.
+            Each center is its own landing page, nutrition, movement, sleep, mind, habits,
+            and beauty, all linking back to the same whole-food philosophy.
           </p>
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -241,7 +241,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Featured resource — the book, framed as one resource */}
+      {/* Featured resource, the book, framed as one resource */}
       <Section>
         <FeaturedResource />
       </Section>

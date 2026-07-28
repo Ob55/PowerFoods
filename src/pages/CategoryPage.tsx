@@ -41,7 +41,7 @@ const promises = [
   {
     icon: ShieldCheck,
     title: "Evidence-informed",
-    body: "Grounded in nutrition research and traditional food wisdom — never hype or quick fixes.",
+    body: "Grounded in nutrition research and traditional food wisdom, never hype or quick fixes.",
   },
   {
     icon: Leaf,
@@ -51,7 +51,7 @@ const promises = [
   {
     icon: Sparkles,
     title: "Sustainable & simple",
-    body: "Small, steady changes you can actually keep — built for the long game, not a 30-day sprint.",
+    body: "Small, steady changes you can actually keep, built for the long game, not a 30-day sprint.",
   },
 ];
 
@@ -172,7 +172,7 @@ export default function CategoryPage() {
             <div className={`pointer-events-none absolute -inset-3 rounded-[2.2rem] ${theme.blobA} blur-2xl`} />
             <motion.img
               src={`/categories/${category.slug}.jpg`}
-              alt={`${category.name} — ${category.tagline}`}
+              alt={`${category.name}, ${category.tagline}`}
               loading="eager"
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
@@ -265,7 +265,7 @@ export default function CategoryPage() {
         </Section>
       )}
 
-      {/* ============ GUIDES — click to expand ============ */}
+      {/* ============ GUIDES, click to expand ============ */}
       {guides.length > 0 && (
         <Section id="guides">
           <div className="max-w-2xl">
@@ -290,7 +290,7 @@ export default function CategoryPage() {
         </Section>
       )}
 
-      {/* ============ WHY IT WORKS — themed promise band ============ */}
+      {/* ============ WHY IT WORKS, themed promise band ============ */}
       <section className={`relative overflow-hidden bg-gradient-to-br ${theme.heroGradient} text-white`}>
         {/* faint photo texture behind the gradient */}
         <img

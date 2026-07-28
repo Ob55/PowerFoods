@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /**
- * Brand logo — an animated leaf mark in a gradient badge plus the wordmark.
+ * Brand logo, an animated leaf mark in a gradient badge plus the wordmark.
  * Use `light` on dark backgrounds (e.g. the footer).
  */
 export function Logo({
