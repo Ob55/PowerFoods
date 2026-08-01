@@ -29,12 +29,12 @@ h4 {
     background-image: linear-gradient(#fff, #fff),
       linear-gradient(
         110deg,
-        #84a9fa,
-        #fb6fec,
-        #fba69e,
-        #fdd4a3,
-        #fb6fec,
-        #84a9fa
+        #6f4718,
+        #a06a2c,
+        #e7c477,
+        #f3e7d1,
+        #a06a2c,
+        #6f4718
       );
     background-origin: border-box;
     background-clip: padding-box, border-box;

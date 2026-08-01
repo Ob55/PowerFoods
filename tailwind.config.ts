@@ -5,35 +5,60 @@ export default {
   theme: {
     extend: {
       colors: {
-        forest: {
-          50: "#f0f7f1",
-          100: "#dbecdd",
-          200: "#b9d9be",
-          300: "#8dbe96",
-          400: "#5c9d68",
-          500: "#3d8049",
-          600: "#2c6538",
-          700: "#24512f",
-          800: "#1f4128",
-          900: "#1a3622",
-        },
-        sap: "#507d2a",
+        // ============ Golden-brown & white theme ============
+        // The dark-section / heading slot ("navy") is a deep espresso brown,
+        // the primary accent ("brand") is golden brown, and the bright
+        // highlight ("cyanx") is a soft gold that reads on dark brown.
+        // Warm neutrals.
+        cream: "#faf6ee",
+        sand: "#f0e6d4",
+        ink: "#2a1d10",
+        // CTA — warm golden amber.
         ember: {
-          400: "#ff9d3c",
-          500: "#f97316",
-          600: "#e05e0b",
+          400: "#e6b959",
+          500: "#cf9333",
+          600: "#b37820",
         },
-        cream: "#f7f4ee",
-        sand: "#efe8db",
-        ink: "#1c2620",
+        // Dark brand slot (hero backdrops, headings, footer).
+        navy: {
+          DEFAULT: "#3f2a15",
+          soft: "#5c4526",
+          900: "#2e1c0d",
+        },
+        // Primary golden-brown accent.
+        brand: {
+          DEFAULT: "#a06a2c",
+          dark: "#6f4718",
+        },
+        // Soft gold highlight for dark backgrounds.
+        cyanx: "#e7c477",
+        // Light section backgrounds (override Tailwind's blue `sky`).
+        sky: {
+          50: "#faf5ec",
+          100: "#f3e7d1",
+        },
+        // Legacy scale kept on-theme (brown) for any leftover usage.
+        forest: {
+          50: "#faf5ec",
+          100: "#f1e4cd",
+          200: "#e3cba0",
+          300: "#d0ac70",
+          400: "#bd8f47",
+          500: "#a5762f",
+          600: "#875e24",
+          700: "#6d4b1e",
+          800: "#573c1a",
+          900: "#472f14",
+        },
+        sap: "#a5762f",
       },
       fontFamily: {
         display: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
         body: ['"Inter"', "system-ui", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 10px 40px -12px rgba(28, 38, 32, 0.18)",
-        cta: "0 12px 30px -8px rgba(224, 94, 11, 0.5)",
+        soft: "0 10px 40px -12px rgba(63, 42, 21, 0.18)",
+        cta: "0 12px 30px -8px rgba(179, 120, 32, 0.5)",
       },
       keyframes: {
         "fade-up": {

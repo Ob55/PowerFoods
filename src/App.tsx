@@ -2,12 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Layout } from "@/components/Layout";
 import HomePage from "@/pages/HomePage";
-import ArticlePage from "@/pages/ArticlePage";
-import CategoryPage from "@/pages/CategoryPage";
-import EncyclopediaPage from "@/pages/EncyclopediaPage";
-import RemediesPage from "@/pages/RemediesPage";
-import SearchPage from "@/pages/SearchPage";
-import BonusPage from "@/pages/BonusPage";
+import ProductLandingPage from "@/pages/ProductLandingPage";
 import NotFound from "@/pages/NotFound";
 
 function ScrollToTop() {
@@ -32,14 +27,9 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="category/:slug" element={<CategoryPage />} />
-          <Route path="articles/:slug" element={<ArticlePage />} />
-          <Route path="encyclopedia" element={<EncyclopediaPage />} />
+          <Route path="course/:slug" element={<ProductLandingPage />} />
           {/* legacy alias */}
-          <Route path="product" element={<EncyclopediaPage />} />
-          <Route path="resources/natural-remedies" element={<RemediesPage />} />
-          <Route path="search" element={<SearchPage />} />
-          <Route path="bonus" element={<BonusPage />} />
+          <Route path="category/:slug" element={<ProductLandingPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

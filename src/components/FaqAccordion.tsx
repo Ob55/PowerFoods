@@ -24,10 +24,10 @@ export function FaqAccordion({ faqs }: { faqs: Faq[] }) {
               onClick={() => setOpenIndex(isOpen ? null : i)}
               className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
             >
-              <span className="font-display font-bold text-forest-900">{faq.q}</span>
+              <span className="font-display font-bold text-navy">{faq.q}</span>
               <ChevronDown
                 className={cn(
-                  "h-5 w-5 flex-shrink-0 text-forest-600 transition-transform",
+                  "h-5 w-5 flex-shrink-0 text-brand transition-transform",
                   isOpen && "rotate-180"
                 )}
               />

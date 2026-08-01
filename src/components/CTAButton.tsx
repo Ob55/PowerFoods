@@ -8,8 +8,13 @@ type Size = "md" | "lg";
 
 interface CTAButtonProps {
   children?: React.ReactNode;
-  /** Internal route. If omitted, links to the affiliate checkout in a new tab. */
+  /** Internal route. Takes precedence over `href`. */
   to?: string;
+  /**
+   * External checkout / order URL for a specific product. Used when `to` is not
+   * set. Falls back to the site-wide CHECKOUT_URL when omitted or empty.
+   */
+  href?: string;
   variant?: Variant;
   size?: Size;
   className?: string;
@@ -39,6 +44,7 @@ const sizes: Record<Size, string> = {
 export function CTAButton({
   children = "Get Your Copy Now",
   to,
+  href,
   variant = "primary",
   size = "md",
   className,
@@ -62,7 +68,7 @@ export function CTAButton({
 
   return (
     <a
-      href={CHECKOUT_URL}
+      href={href || CHECKOUT_URL}
       target="_blank"
       rel="noopener noreferrer"
       className={classes}
