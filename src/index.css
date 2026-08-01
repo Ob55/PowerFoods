@@ -8,6 +8,14 @@
 
 html {
   scroll-behavior: smooth;
+  /* Slightly larger base so all rem-based type/spacing reads bigger and airier. */
+  font-size: 16.5px;
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 body {
@@ -23,10 +31,36 @@ h4 {
 
 @layer components {
   .container-x {
-    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-10;
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-12 xl:px-16;
   }
   /* Thin luxury divider (accent) used between editorial sections. */
   .rule-accent {
     @apply h-px w-12 bg-accent;
+  }
+  /* Animated shine sweeping across gradient text (hero accent). */
+  .shine-text {
+    background-image: linear-gradient(
+      100deg,
+      theme("colors.ink") 0%,
+      theme("colors.ink") 35%,
+      theme("colors.accent.DEFAULT") 50%,
+      theme("colors.ink") 65%,
+      theme("colors.ink") 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    @apply animate-shine;
+  }
+  /* Card hover lift used on interactive cards. */
+  .card-lift {
+    @apply transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-lift;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shine-text {
+    animation: none;
   }
 }

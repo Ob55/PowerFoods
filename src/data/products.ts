@@ -34,6 +34,26 @@ export interface Testimonial {
   verified?: boolean;
   /** Screenshot of the real published review (name, stars and text baked in). */
   image?: string;
+  /** Course the student completed (shown in the review carousel caption). */
+  course?: string;
+  /** Skill level reached, e.g. "Beginner → Confident". */
+  skillLevel?: string;
+}
+
+/** The doc's Current → Insight → Missing → Opportunity learning-gap flow. */
+export interface KnowledgeGap {
+  current: string;
+  insight: string;
+  missing: string;
+  opportunity: string;
+}
+
+/** "Continue Your Learning" recommendation shown near the end of a course page. */
+export interface NextStep {
+  /** Course slug to link to, or a route like "/#courses" for the bundle. */
+  slug: string;
+  label: string;
+  reason: string;
 }
 
 export interface Lesson {
@@ -102,6 +122,30 @@ export interface Product {
   includedCourses?: IncludedCourse[];
   /** Bundle-only: savings note. */
   savingsNote?: string;
+
+  // ---- Educational-first content (per HOMEPAGE.pdf / COURSE LANDING PAGES.pdf) ----
+  /** Google Drive file ID for the hero demonstration video (click-to-play embed). */
+  heroVideoId?: string;
+  /** Self-hosted hero video (public path) — preferred over heroVideoId when set. */
+  heroVideoSrc?: string;
+  /** Poster image shown before the hero video plays. */
+  heroPoster?: string;
+  /** One-line "ideal learner" shown on the homepage learning-path card. */
+  idealLearner?: string;
+  /** One-line primary outcome shown on the homepage learning-path card. */
+  primaryOutcome?: string;
+  /** "Why This Skill Matters" — 1–2 short paragraphs. */
+  whyItMatters?: string;
+  /** The Current → Insight → Missing → Opportunity learning-gap flow. */
+  knowledgeGap?: KnowledgeGap;
+  /** "Professional Insight" — pro tips / commonly misunderstood concepts. */
+  professionalInsight?: string[];
+  /** "Course Overview" paragraph. */
+  overview?: string;
+  /** "Benefits of Mastering This Skill" — outcomes (distinct from step-by-step benefits). */
+  masteryBenefits?: string[];
+  /** "Continue Your Learning" — the next logical course. */
+  nextStep?: NextStep;
 }
 
 /** Formats a USD price, e.g. "$59.99". */
@@ -158,6 +202,7 @@ export const products: Product[] = [
     subhead:
       "One real client. Timers on screen. Every stage explained — removal, cuticle work, gel leveling, shaping, color and top coat.",
     price: 59.99,
+    image: "/products/oval-shape.jpg",
     lessonsInfo: "9 video lessons · 90+ minutes",
     rating: 5,
     reviewLabel: "Verified 5-star reviews",
@@ -199,6 +244,44 @@ export const products: Product[] = [
     testimonials: students,
     guarantee,
     bundleUpsell: true,
+    heroVideoId: "1vLG4E8Gd2YdkFQ-GrHEbEEteEmA3OGIF",
+    heroVideoSrc: "/videos/oval-shape.mp4",
+    heroPoster: "/videos/oval-shape-poster.jpg",
+    idealLearner:
+      "Complete beginners and self-taught artists who want a proper foundation before anything else.",
+    primaryOutcome:
+      "A clean, symmetrical oval and a repeatable removal-to-top-coat workflow you can finish in 50 minutes.",
+    whyItMatters:
+      "The oval is where a professional manicure is really built. Master the removal, cuticle work and gel leveling here and every other shape becomes an adjustment rather than a fresh struggle. It is the difference between copying a look you saw online and understanding why each step happens — which is what keeps the finish clean and the nail healthy.",
+    knowledgeGap: {
+      current:
+        "Most people learn nails one video at a time, so the steps feel disconnected and results vary from client to client.",
+      insight:
+        "Professionals work from a fixed sequence — removal, pocket, cuticle, prep, base, leveling, shape, finish — where each stage sets up the next.",
+      missing:
+        "What is usually skipped is the reasoning: why the cuticle pocket is opened before cutting, and why gel is leveled before the shape is filed.",
+      opportunity:
+        "Learn the sequence and the reasoning together and you stop guessing — the same clean oval becomes repeatable on any nail.",
+    },
+    professionalInsight: [
+      "Symmetry is judged from the free edge looking down the finger, not from above — check it early and you file far less.",
+      "Gel that lifts is almost always a prep problem, not a product problem: a properly opened and cleaned pocket is what makes it last.",
+      "Speed comes from fewer corrections, not faster hands — the on-screen timers show where the real minutes go.",
+    ],
+    overview:
+      "A start-from-zero course filmed on one real client, with timers on screen for every stage. You follow the complete dry-manicure workflow — 3-minute gel removal, opening the pocket, safe cuticle cutting, surface prep, a thin base, hand-flip leveling, oval shaping and the final top coat — plus a bonus fix for damaged nails.",
+    masteryBenefits: [
+      "Consistent, symmetrical ovals you can reproduce on any client",
+      "A calm, predictable 50-minute appointment instead of a rushed one",
+      "Gel that stays put because the prep underneath it is correct",
+      "The confident foundation every other shape and technique builds on",
+    ],
+    nextStep: {
+      slug: "square-shape",
+      label: "Square Nails in 50 Minutes",
+      reason:
+        "Once the oval feels natural, the square is the logical next shape — same workflow, sharper corners, and a few new grips.",
+    },
     faqs: [
       { q: "Do I need prior Russian manicure experience?", a: "No experience needed. It's built for all levels — from first-time e-file users to experienced techs." },
       { q: "Why does the cuticle section matter so much?", a: "Cuticle work is the foundation of the whole manicure. Rush it and the gel lifts, the shape looks off, and the finish is uneven." },
@@ -260,6 +343,42 @@ export const products: Product[] = [
     testimonials: students,
     guarantee,
     bundleUpsell: true,
+    heroVideoId: "1xH5ENG0w1yb-Nn9qriZVdKNZ0ehx3tht",
+    idealLearner:
+      "Techs comfortable with the basics whose square corners keep rounding out — and anyone serving thin, brittle nails.",
+    primaryOutcome:
+      "A crisp, soft square with clean color, plus a sidewall-strengthening technique for fragile nails.",
+    whyItMatters:
+      "A true square is one of the hardest shapes to keep consistent, because the corners want to soften every time you file. Getting it right is a clear signal of control — it tells a client you can deliver exactly the shape they asked for. The same precision also protects thin, brittle nails, so the skill pays off well beyond one look.",
+    knowledgeGap: {
+      current:
+        "Many techs file toward a square but round the corners without noticing, ending up with a shape that reads as 'squoval' by accident.",
+      insight:
+        "Pros file the square in a deliberate order — a sharp 90° first, then a controlled softening — so the corner is a choice, not a slip.",
+      missing:
+        "The usual gap is corner control and sidewall support: how to soften without losing the edge, and how to reinforce nails that flex.",
+      opportunity:
+        "Learn the two-grip cutting and the 90°-then-soften sequence and the square becomes repeatable instead of accidental.",
+    },
+    professionalInsight: [
+      "A square is filed straight across first and refined last — chasing the corners early is what rounds them off.",
+      "Two-grip cuticle cutting (90° then 45°) in tiny steps gives a cleaner base for crisp sidewalls.",
+      "Thin, brittle nails need structural support at the sidewalls, not just a thicker top coat.",
+    ],
+    overview:
+      "Filmed on two real clients with timers on screen. You work the full dry-manicure start to finish — 3-minute removal, two-grip cuticle cutting, hand-flip leveling, a perfect 90° square softened into a clean soft square, two coats of black polish with fine liner work, and a dedicated sidewall-strengthening technique for thin nails.",
+    masteryBenefits: [
+      "Sharp, even squares that hold their shape after top coat",
+      "Clean dark-polish application without flooding the sidewalls",
+      "A reliable method for supporting thin, brittle natural nails",
+      "The control to give clients the exact shape they ask for",
+    ],
+    nextStep: {
+      slug: "problem-nails",
+      label: "Problem Nails Masterclass",
+      reason:
+        "With both shapes solid, the next step is fixing the nails other techs turn away — hooked, cracked and rebuilt structures.",
+    },
     faqs: [
       { q: "Do I need to take the Oval course first?", a: "No, but many students take Oval first. This course still covers the full workflow start to finish." },
       { q: "My square corners always round out — will this fix it?", a: "Yes. You'll learn the 90° filing sequence and how to soften the corners without losing the square." },
@@ -279,6 +398,7 @@ export const products: Product[] = [
     subhead:
       "Four real clients. Four different disasters — hooked nails, missing sidewalls, deep cracks, inherited extensions. The cases other techs quietly refuse.",
     price: 131.99,
+    image: "/products/problem-nails.jpg",
     lessonsInfo: "12 lessons · 4 real client cases",
     rating: 5,
     reviewLabel: "Verified 5-star reviews",
@@ -323,6 +443,44 @@ export const products: Product[] = [
     testimonials: students,
     guarantee,
     bundleUpsell: true,
+    heroVideoId: "1iyVMQrJHer0nqrQXh-o7oQg_Iq07d7PF",
+    heroVideoSrc: "/videos/problem-nails.mp4",
+    heroPoster: "/videos/problem-nails-poster.jpg",
+    idealLearner:
+      "Confident techs ready to stop turning away difficult nails and to charge premium prices for reconstruction.",
+    primaryOutcome:
+      "The ability to assess and rebuild hooked, curved, cracked and downward-growing nails with polygel.",
+    whyItMatters:
+      "The hardest cases are the ones most techs quietly refuse — and that is exactly where the value is. Learning to correct structure rather than remove it means healthier nails for the client and premium, repeatable work for you. It is the point where a technician becomes the person other salons send their difficult clients to.",
+    knowledgeGap: {
+      current:
+        "Faced with a hooked or cracked nail, the common instinct is a full removal and a fresh start.",
+      insight:
+        "Experienced techs assess the structure first and correct it in place, because full removal damages the plate and costs far more time.",
+      missing:
+        "The gap is diagnosis and reconstruction: reading crack severity, rebuilding a missing sidewall, and filing without reversing the correction.",
+      opportunity:
+        "Learn to work through four real cases and 'problem' nails become premium, billable work instead of a decline.",
+    },
+    professionalInsight: [
+      "Polygel holds shape where regular gel collapses and stays workable longer than acrylic — it is the right tool for rebuilding structure.",
+      "A correction is only as good as the assessment before it: match the repair to the actual damage, not a one-size approach.",
+      "Filing a reconstructed nail follows different rules — the wrong angle can undo the shape you just built.",
+    ],
+    overview:
+      "Four real clients, four different challenges — hooked and curved nails, missing sidewalls, deep cracks and inherited extensions. Across 12 lessons you assess each case, rebuild the structure with polygel, and finish and file it so the correction holds through normal wear.",
+    masteryBenefits: [
+      "The confidence to take on nails other techs decline",
+      "Structural reconstruction that protects the natural nail",
+      "A clear framework for assessing damage before you start",
+      "Premium services you can price accordingly",
+    ],
+    nextStep: {
+      slug: "stamping",
+      label: "Nail Stamping Secrets",
+      reason:
+        "After the technical work, stamping adds a profitable creative layer — fast, repeatable designs on top of a perfect base.",
+    },
     faqs: [
       { q: "Is this for beginners?", a: "No — this is genuinely advanced work. It's best after the Oval or Square course, once you're confident with gel leveling, e-file removal and shape filing." },
       { q: "What is polygel and why use it?", a: "Polygel is thicker than gel and more workable than acrylic. It holds shape where regular gel would collapse, and you can shape it before curing." },
@@ -342,6 +500,7 @@ export const products: Product[] = [
     subhead:
       "Two stampers, six techniques, real designs — firm vs. clear stamper, gradient blending, reverse stamping, chrome powder, foil and watercolor drops.",
     price: 47.99,
+    image: "/products/stamping.jpg",
     lessonsInfo: "9 videos · 6 technique lessons",
     rating: 5,
     reviewLabel: "Verified 5-star reviews",
@@ -381,6 +540,44 @@ export const products: Product[] = [
     testimonials: students,
     guarantee,
     bundleUpsell: true,
+    heroVideoId: "1ueY-lq168kDRva67ICPfbkj2l3ZlKYQa",
+    heroVideoSrc: "/videos/stamping.mp4",
+    heroPoster: "/videos/stamping-poster.jpg",
+    idealLearner:
+      "Anyone — hobbyist or pro — who wants salon-looking nail art without 30 minutes of freehand painting.",
+    primaryOutcome:
+      "Clean, repeatable stamped designs plus gradient, reverse-stamping and chrome/foil combinations.",
+    whyItMatters:
+      "Stamping is the fastest route to designs that look hand-painted without the years of drawing practice. For a hobbyist it turns a plain manicure into something special in minutes; for a pro it adds a profitable, repeatable service. Either way, the value is in doing it cleanly and consistently rather than fighting broken lines and smudges.",
+    knowledgeGap: {
+      current:
+        "Most people press the stamper straight down, get half a design, and assume the plate or polish is the problem.",
+      insight:
+        "Consistent stamping comes from the motion and the tools — a rolling pickup and the right stamper for the job.",
+      missing:
+        "What's usually missing is stamper choice (firm vs. clear), the rolling technique, and how to layer gradients or chrome without going muddy.",
+      opportunity:
+        "Learn six techniques in order and 'nail art' stops being luck and becomes something you can repeat on demand.",
+    },
+    professionalInsight: [
+      "A rolling pickup pushes air out of the etching, which is why the whole design transfers instead of half of it.",
+      "Firm stampers reach closer to the cuticle for fine lines; clear stampers let you place a design exactly where you want it.",
+      "Reverse stamping gives a hand-painted look with zero drawing skill — you paint the plate, not the nail.",
+    ],
+    overview:
+      "Nine videos across six technique lessons using two stampers. You learn the rolling pickup, firm vs. clear stampers, getting designs under the cuticle, two- and three-color gradients, reverse stamping, and combining stamping with chrome powder, foil and watercolor drops.",
+    masteryBenefits: [
+      "Crisp, complete designs without broken or smudged lines",
+      "Gradient and reverse-stamping looks that read as hand-painted",
+      "A fast, profitable nail-art service you can repeat on demand",
+      "Confidence combining stamping with chrome, foil and watercolor",
+    ],
+    nextStep: {
+      slug: "bundle",
+      label: "Complete Russian Manicure Masterclass",
+      reason:
+        "You've seen how the techniques connect — the complete bundle brings every shape, problem-nail case and bonus together in one system.",
+    },
     faqs: [
       { q: "Why won't my stamping design pick up?", a: "Usually the pickup motion. The fix is a rolling motion that pushes air out of the etching as you go." },
       { q: "Firm vs. clear stamper — what's the difference?", a: "Firm stampers are harder and reach closer to the cuticle; clear stampers are soft and transparent so you can place the design precisely." },
@@ -442,6 +639,42 @@ export const products: Product[] = [
     instructor: yuliia,
     testimonials: students,
     guarantee,
+    heroVideoId: "17kJM0jX87eyuyIAABiZ6uTbniccO45ct",
+    idealLearner:
+      "Anyone who wants the whole system — from first-time beginners to experienced techs upgrading everything at once.",
+    primaryOutcome:
+      "A complete, anatomy-based dry-manicure system covering every shape, problem-nail case and nail art.",
+    whyItMatters:
+      "Individual courses each teach a piece; the complete system is where they connect. Learning every shape, the hard cases and the creative work as one progression means the reasoning carries across all of it — so you are not relearning fundamentals each time. It is the difference between a set of tricks and a way of working.",
+    knowledgeGap: {
+      current:
+        "It's easy to collect scattered tutorials and still have gaps between shapes, repairs and finishing.",
+      insight:
+        "A structured curriculum teaches each skill in the order that makes the next one easier to learn.",
+      missing:
+        "What single lessons miss is the connective tissue — how removal, leveling, shaping, reconstruction and art reinforce one another.",
+      opportunity:
+        "Follow the full path start to finish and every technique reinforces the last, at your own pace and with lifetime access.",
+    },
+    professionalInsight: [
+      "The system is anatomy-based — it works on dead tissue only, which keeps it safe and salon-legal.",
+      "Progression matters: the Oval fundamentals make the Square easier, and both make problem-nail reconstruction click.",
+      "The two bundle-only bonuses (mature hands and a 34-minute express manicure) exist because speed and adaptability come after the fundamentals.",
+    ],
+    overview:
+      "The complete dry-manicure system: six full courses and two bundle-exclusive bonuses — 10.5 hours filmed on real clients with on-screen timers. It takes you from your first oval through squares, problem-nail reconstruction, pedicure, flawless gel coating and stamping, then adds mature-hands and express-manicure bonuses.",
+    masteryBenefits: [
+      "Every shape, plus problem nails and nail art, in one coherent system",
+      "Premium results in less time with a repeatable workflow",
+      "An anatomy-based, license-safe technique end to end",
+      "Lifetime access to the full progression, at your own pace",
+    ],
+    nextStep: {
+      slug: "/#courses",
+      label: "Explore the individual learning paths",
+      reason:
+        "Prefer to focus on one skill first? Each course in the bundle also stands on its own — start wherever you are.",
+    },
     faqs: [
       { q: "Is the bundle good for beginners?", a: "Yes — the Oval course starts from zero, and you can progress through the system at your own pace." },
       { q: "Are the bonus lessons available separately?", a: "No. 'Manicure on Mature Hands' and the 'Express 34-Minute Full Manicure' are exclusive to the bundle." },

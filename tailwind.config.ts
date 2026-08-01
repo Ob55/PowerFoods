@@ -33,23 +33,30 @@ export default {
         input: "14px",
       },
       maxWidth: {
-        content: "1280px",
-        reading: "760px",
+        content: "1440px",
+        reading: "900px",
       },
       boxShadow: {
         // Very subtle only — no heavy floating cards.
         soft: "0 8px 30px rgba(0,0,0,0.05)",
         card: "0 1px 2px rgba(45,42,42,0.05)",
         cta: "0 8px 24px -8px rgba(201,123,99,0.45)",
+        lift: "0 24px 60px -20px rgba(45,42,42,0.18)",
       },
       keyframes: {
         "fade-up": {
           from: { opacity: "0", transform: "translateY(24px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        // Sweeping shine across gradient text (adapted from the DesignPro ShinyText idea).
+        shine: {
+          "0%": { backgroundPosition: "200% center" },
+          "100%": { backgroundPosition: "-200% center" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.7s cubic-bezier(0.16,1,0.3,1) forwards",
+        shine: "shine 6s linear infinite",
       },
     },
   },

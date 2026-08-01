@@ -22,7 +22,7 @@ interface CTAButtonProps {
 }
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-display font-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cta/40 focus:ring-offset-2 focus:ring-offset-paper whitespace-nowrap";
+  "inline-flex items-center justify-center gap-2 rounded-full font-display font-bold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-cta/40 focus:ring-offset-2 focus:ring-offset-paper whitespace-nowrap";
 
 const variants: Record<Variant, string> = {
   // Terracotta CTA — highly visible but elegant.
@@ -32,8 +32,8 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
-  md: "h-11 px-6 text-sm",
-  lg: "h-14 px-8 text-base",
+  md: "h-11 px-6 text-base",
+  lg: "h-14 px-8 text-lg",
 };
 
 /**

@@ -111,22 +111,34 @@ function Header() {
   );
 }
 
+// Footer navigation that continues the educational experience (per HOMEPAGE.pdf §9).
+const FOOTER_RESOURCES: { label: string; to: string }[] = [
+  { label: "The learning journey", to: "/#roadmap" },
+  { label: "Educational resources", to: "/#resources" },
+  { label: "Student success", to: "/#results" },
+  { label: "About the academy", to: "/#about" },
+  { label: "Frequently asked questions", to: "/#faq" },
+];
+
 function Footer() {
   return (
     <footer className="border-t border-line bg-linen">
-      <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr]">
+      <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr]">
         <div>
           <Logo />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-graphite">
-            On-demand Russian manicure and nail-art courses taught by an
-            award-winning educator. Real clients, timers on screen, lifetime
+            A premium online academy for the Russian manicure, taught by an
+            award-winning educator on real clients — structured lessons, lifetime
             access, and a certificate of completion.
           </p>
           <span className="mt-6 block rule-accent" />
+          <p className="mt-6 max-w-sm text-sm font-medium leading-relaxed text-ink">
+            Every great result begins with the fundamentals and one confident step at a time.
+          </p>
         </div>
 
         <div>
-          <p className="mb-4 font-display text-sm font-bold text-ink">Courses</p>
+          <p className="mb-4 font-display text-sm font-bold text-ink">Learning paths</p>
           <ul className="space-y-3 text-sm">
             {products.map((p) => (
               <li key={p.slug}>
@@ -138,6 +150,24 @@ function Footer() {
                 </Link>
               </li>
             ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="mb-4 font-display text-sm font-bold text-ink">Keep learning</p>
+          <ul className="space-y-3 text-sm">
+            {FOOTER_RESOURCES.map((r) => (
+              <li key={r.to}>
+                <Link to={r.to} className="text-graphite transition-colors hover:text-ink">
+                  {r.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link to="/course/bundle" className="text-graphite transition-colors hover:text-ink">
+                Continue with the complete journey
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
