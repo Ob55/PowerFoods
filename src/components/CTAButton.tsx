@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { CHECKOUT_URL } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "outline" | "ghost";
+type Variant = "primary" | "secondary";
 type Size = "md" | "lg";
 
 interface CTAButtonProps {
@@ -22,13 +22,13 @@ interface CTAButtonProps {
 }
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-display font-bold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 focus:outline-none focus:ring-2 focus:ring-ember-500/50 whitespace-nowrap";
+  "inline-flex items-center justify-center gap-2 rounded-full font-display font-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cta/40 focus:ring-offset-2 focus:ring-offset-paper whitespace-nowrap";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-ember-600 text-white shadow-cta hover:bg-ember-500",
-  outline:
-    "border-2 border-forest-700 text-forest-800 hover:bg-forest-700 hover:text-white",
-  ghost: "bg-white text-forest-800 shadow-soft hover:bg-cream",
+  // Terracotta CTA — highly visible but elegant.
+  primary: "bg-cta text-white shadow-cta hover:bg-cta-hover",
+  // Quiet outline using the luxury accent.
+  secondary: "border border-accent bg-white text-accent hover:bg-accent/5",
 };
 
 const sizes: Record<Size, string> = {
@@ -38,11 +38,10 @@ const sizes: Record<Size, string> = {
 
 /**
  * The single button used for every call to action.
- * Default (no `to`) sends the visitor to the affiliate checkout, preserving
- * the #aff= fragment, in a new tab.
+ * Default (no `to`) sends the visitor to the affiliate checkout in a new tab.
  */
 export function CTAButton({
-  children = "Get Your Copy Now",
+  children = "Enroll Now",
   to,
   href,
   variant = "primary",
@@ -54,7 +53,7 @@ export function CTAButton({
   const content = (
     <>
       {children}
-      {showArrow && <ArrowRight className="h-4 w-4" />}
+      {showArrow && <ArrowRight className="h-4 w-4" strokeWidth={2} />}
     </>
   );
 

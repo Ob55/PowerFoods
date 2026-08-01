@@ -62,6 +62,8 @@ export interface Product {
   floatIcons: LucideIcon[];
   /** Optional ribbon, e.g. "Best value", "Advanced". */
   badge?: string;
+  /** Difficulty level shown as a badge on course cards. */
+  difficulty: "Beginner" | "Intermediate" | "Advanced" | "All levels";
   /** Hero headline (the promise). */
   headline: string;
   /** Sub-headline sentence. */
@@ -151,6 +153,7 @@ export const products: Product[] = [
     name: "Oval Nails in 50 Minutes",
     icon: Gem,
     floatIcons: MOTIF,
+    difficulty: "Beginner",
     headline: "Russian Manicure E-File Technique — Removal to Finish",
     subhead:
       "One real client. Timers on screen. Every stage explained — removal, cuticle work, gel leveling, shaping, color and top coat.",
@@ -210,6 +213,7 @@ export const products: Product[] = [
     name: "Square Nails in 50 Minutes",
     icon: Square,
     floatIcons: MOTIF,
+    difficulty: "Intermediate",
     headline: "The Complete Dry Manicure Workflow, Start to Finish",
     subhead:
       "Two real clients. Timers on screen. A soft square with black polish, plus sidewall strengthening for thin, brittle nails.",
@@ -269,6 +273,7 @@ export const products: Product[] = [
     name: "Problem Nails Masterclass",
     icon: Wrench,
     floatIcons: MOTIF,
+    difficulty: "Advanced",
     badge: "Advanced",
     headline: "Hooked, Curved & Downward Nails — Fixes That Actually Work",
     subhead:
@@ -332,6 +337,7 @@ export const products: Product[] = [
     name: "Nail Stamping Secrets",
     icon: Stamp,
     floatIcons: MOTIF,
+    difficulty: "All levels",
     headline: "From Polka Dots to Chrome — Designs That Actually Work",
     subhead:
       "Two stampers, six techniques, real designs — firm vs. clear stamper, gradient blending, reverse stamping, chrome powder, foil and watercolor drops.",
@@ -388,6 +394,7 @@ export const products: Product[] = [
     name: "Complete Russian Manicure Masterclass",
     icon: Package,
     floatIcons: MOTIF,
+    difficulty: "All levels",
     badge: "Best value",
     headline: "Less Time. Higher Prices. Premium Results.",
     subhead:

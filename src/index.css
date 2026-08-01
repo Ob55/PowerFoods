@@ -11,49 +11,22 @@ html {
 }
 
 body {
-  @apply overflow-x-hidden bg-cream text-ink font-body antialiased;
+  @apply overflow-x-hidden bg-paper text-graphite font-body antialiased;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  @apply font-display tracking-tight;
+  @apply font-display tracking-tight text-ink;
 }
 
 @layer components {
   .container-x {
-    @apply mx-auto w-full max-w-[1480px] px-5 sm:px-8 lg:px-10;
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-10;
   }
-  .gradient-border {
-    background-image: linear-gradient(#fff, #fff),
-      linear-gradient(
-        110deg,
-        #6f4718,
-        #a06a2c,
-        #e7c477,
-        #f3e7d1,
-        #a06a2c,
-        #6f4718
-      );
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    background-size: 100%, 200%;
-    transition: background-position 0.7s ease;
-  }
-  .gradient-border:hover {
-    background-position: 0 0, 200% 0;
-  }
-  .prose-article p {
-    @apply mb-5 text-lg leading-relaxed text-ink/80;
-  }
-  .prose-article h2 {
-    @apply mt-10 mb-4 text-2xl sm:text-3xl text-forest-800;
-  }
-  .prose-article h3 {
-    @apply mt-8 mb-3 text-xl text-forest-700;
-  }
-  .prose-article ul {
-    @apply mb-6 space-y-2 pl-1;
+  /* Thin luxury divider (accent) used between editorial sections. */
+  .rule-accent {
+    @apply h-px w-12 bg-accent;
   }
 }
