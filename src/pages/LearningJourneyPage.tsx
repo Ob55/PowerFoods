@@ -13,27 +13,23 @@ const PLATFORM_LINKS = {
 const PLATFORMS: {
   icon: LucideIcon;
   name: string;
-  tagline: string;
   href: string;
   featured?: boolean;
 }[] = [
   {
     icon: Smartphone,
     name: "iPhone",
-    tagline: "iPhone user? Click here",
     href: PLATFORM_LINKS.iphone,
     featured: true,
   },
   {
     icon: Smartphone,
     name: "Android",
-    tagline: "Android user? Click here",
     href: PLATFORM_LINKS.android,
   },
   {
     icon: Monitor,
     name: "Desktop",
-    tagline: "Desktop user? Click here",
     href: PLATFORM_LINKS.desktop,
   },
 ];
@@ -42,13 +38,11 @@ const PLATFORMS: {
 function PlatformCard({
   icon: Icon,
   name,
-  tagline,
   href,
   featured = false,
 }: {
   icon: LucideIcon;
   name: string;
-  tagline: string;
   href: string;
   featured?: boolean;
 }) {
@@ -66,7 +60,6 @@ function PlatformCard({
         <Icon className="h-8 w-8" strokeWidth={1.5} />
       </span>
       <h2 className="mt-5 font-display text-xl font-bold text-ink">{name}</h2>
-      <p className="mt-2 text-sm text-graphite">{tagline}</p>
       <span className="btn-glow mt-6 inline-flex items-center gap-1.5 rounded-full bg-cta px-6 py-3 text-sm font-bold text-white transition-colors duration-200 group-hover:bg-cta-hover">
         Click Here <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
       </span>
