@@ -16,7 +16,7 @@ function stepState(currentSlug: string | undefined, index: number, currentIndex:
 interface LearningRoadmapProps {
   /**
    * When set, highlights the matching course as the current step and marks
-   * earlier steps as completed — used on course pages. Omit on the homepage
+   * earlier steps as completed, used on course pages. Omit on the homepage
    * for a neutral, all-equal roadmap.
    */
   currentSlug?: string;

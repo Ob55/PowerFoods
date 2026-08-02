@@ -61,7 +61,7 @@ function CourseImage({ product }: { product: Product }) {
 function EnrollButton({ product, className }: { product: Product; className?: string }) {
   return (
     <CTAButton href={product.checkoutUrl} size="lg" className={className} showArrow={false}>
-      {`Enroll Now — ${formatPrice(product.price)}`}
+      {`Enroll Now, ${formatPrice(product.price)}`}
     </CTAButton>
   );
 }
@@ -144,12 +144,12 @@ export default function ProductLandingPage() {
               <HeroVideo
                 src={product.heroVideoSrc}
                 posterSrc={product.heroPoster}
-                title={`${product.name} — technique demonstration`}
+                title={`${product.name}, technique demonstration`}
               />
             ) : product.heroVideoId && HERO_VIDEOS_ENABLED ? (
               <HeroVideo
                 videoId={product.heroVideoId}
-                title={`${product.name} — technique demonstration`}
+                title={`${product.name}, technique demonstration`}
                 poster={
                   product.image ? (
                     <img src={product.image} alt={product.name} className="h-full w-full object-cover" />
@@ -189,7 +189,7 @@ export default function ProductLandingPage() {
           <SectionHeading
             eyebrow="The knowledge gap"
             title="What most people are missing"
-            sub="Not to create pressure — just to show where the real learning happens."
+            sub="Not to create pressure, just to show where the real learning happens."
           />
           <div className="mx-auto mt-12 max-w-reading space-y-4">
             {[
@@ -421,7 +421,7 @@ export default function ProductLandingPage() {
           <SectionHeading
             eyebrow="Continue your learning"
             title="Where to go next"
-            sub="A recommendation for the next step in your learning journey — explore it whenever you're ready."
+            sub="A recommendation for the next step in your learning journey, explore it whenever you're ready."
           />
           <Link
             to={nextTarget}

@@ -25,7 +25,7 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-full font-display font-bold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-cta/40 focus:ring-offset-2 focus:ring-offset-paper whitespace-nowrap";
 
 const variants: Record<Variant, string> = {
-  // Terracotta CTA — highly visible but elegant.
+  // Terracotta CTA, highly visible but elegant.
   primary: "bg-cta text-white shadow-cta hover:bg-cta-hover",
   // Quiet outline using the luxury accent.
   secondary: "border border-accent bg-white text-accent hover:bg-accent/5",

@@ -33,7 +33,7 @@ export default {
         input: "14px",
       },
       maxWidth: {
-        content: "1440px",
+        content: "1800px",
         reading: "900px",
       },
       boxShadow: {

@@ -24,7 +24,6 @@ import {
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { CTAButton } from "@/components/CTAButton";
-import { HeroVideo } from "@/components/HeroVideo";
 import { ReviewCarousel } from "@/components/ReviewCarousel";
 import { LearningRoadmap } from "@/components/LearningRoadmap";
 import { FaqAccordion } from "@/components/FaqAccordion";
@@ -33,8 +32,6 @@ import { products, formatPrice, type Product } from "@/data/products";
 const bundle = products.find((p) => p.slug === "bundle")!;
 const courses = products.filter((p) => p.slug !== "bundle");
 const reviews = products[0].testimonials.filter((t) => t.image);
-// Academy intro video (self-hosted) — the first course with a video (Oval).
-const introVideo = products.find((p) => p.heroVideoSrc);
 
 // Why structured learning beats random tutorials.
 const WHY_LEARN = [
@@ -46,7 +43,7 @@ const WHY_LEARN = [
   {
     icon: Video,
     title: "Learned on real hands",
-    body: "Techniques are demonstrated on real clients with timers on screen — you see how a method actually behaves, not an idealized version.",
+    body: "Techniques are demonstrated on real clients with timers on screen, you see how a method actually behaves, not an idealized version.",
   },
   {
     icon: ShieldCheck,
@@ -60,14 +57,14 @@ const WHY_LEARN = [
   },
 ];
 
-// "Why Choose This Academy" — differentiators (from HOMEPAGE.pdf §12).
+// "Why Choose This Academy", differentiators (from HOMEPAGE.pdf §12).
 const WHY_CHOOSE_ACADEMY = [
   { icon: Layers, title: "Structured curriculum", body: "A clear step-by-step path, not a pile of disconnected tutorials." },
   { icon: TrendingUp, title: "Progressive skill development", body: "Each course prepares you for the next, so difficulty ramps up gently." },
   { icon: Video, title: "Real technique demonstrations", body: "Everything is shown on real clients, start to finish, with nothing edited out." },
   { icon: Repeat, title: "Practical, repeatable methods", body: "Workflows designed to give the same result every time, not one lucky attempt." },
   { icon: Users, title: "For every experience level", body: "Whether you're learning for yourself or for clients, the path meets you where you are." },
-  { icon: Clock, title: "Learn at your own pace", body: "On-demand video with lifetime access — revisit any lesson whenever you need it." },
+  { icon: Clock, title: "Learn at your own pace", body: "On-demand video with lifetime access, revisit any lesson whenever you need it." },
   { icon: Lightbulb, title: "Understand, don't memorize", body: "The focus is on understanding techniques so you can adapt them to any nail." },
 ];
 
@@ -92,15 +89,20 @@ const RESOURCES = [
 const HOME_FAQS = [
   { q: "Do I need any experience to start?", a: "No. The roadmap begins with the Oval course, which starts from zero, and each course explains every stage. Experienced techs can jump straight to Square, Problem Nails, or Stamping." },
   { q: "How are the courses delivered?", a: "Everything is on-demand video you can watch at your own pace, on any device, as many times as you like. Most lessons are filmed on real clients with timers on screen." },
-  { q: "Do I get a certificate?", a: "Yes — a certificate of completion from VEL Academy is issued automatically once you finish a course's modules." },
+  { q: "Do I get a certificate?", a: "Yes, a certificate of completion from VEL Academy is issued automatically once you finish a course's modules." },
   { q: "How long do I have access?", a: "Access is unlimited and for life. You keep every lesson, plus any future updates, after a one-time payment." },
   { q: "What if it isn't right for me?", a: "Every course is covered by a 60-day money-back guarantee. Contact VEL Academy within 60 days of purchase for a full refund." },
 ];
 
 function Hero() {
   return (
-    <section className="relative bg-paper">
-      <div className="container-x pb-16 pt-28 text-center lg:pb-24 lg:pt-40">
+    <section className="relative overflow-hidden bg-paper">
+      {/* Soft decorative backdrop for a more premium hero. */}
+      <div className="pointer-events-none absolute inset-0 -z-0">
+        <div className="absolute -left-24 -top-24 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
+        <div className="absolute -right-24 top-32 h-96 w-96 rounded-full bg-cta/10 blur-3xl" />
+      </div>
+      <div className="container-x relative z-10 pb-16 pt-28 text-center lg:pb-24 lg:pt-40">
         <Reveal>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             <span className="rule-accent" /> Professional Nail Education
@@ -114,7 +116,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mx-auto mt-7 max-w-reading text-xl leading-relaxed text-graphite lg:text-2xl">
-            A premium online academy for anyone serious about nails — from your
+            A premium online academy for anyone serious about nails, from your
             first oval to reconstructing problem nails. Structured lessons on
             real clients, with every stage explained, so you understand the
             technique instead of just copying it.
@@ -138,21 +140,37 @@ function Hero() {
           </div>
         </Reveal>
 
-        {/* Introduction video — a short welcome from the instructor. */}
-        {introVideo?.heroVideoSrc && (
-          <Reveal delay={0.25}>
-            <div className="mx-auto mt-14 max-w-4xl">
-              <HeroVideo
-                src={introVideo.heroVideoSrc}
-                posterSrc={introVideo.heroPoster}
-                title="Welcome to the academy"
-              />
-              <p className="mt-4 text-sm text-muted">
-                A short look at the techniques, learning paths and student work inside the academy.
-              </p>
+        {/* Course showcase, the four learning paths at a glance. */}
+        <Reveal delay={0.25}>
+          <div className="mx-auto mt-16 max-w-5xl">
+            <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
+              {courses.map((p) => (
+                <Link
+                  key={p.slug}
+                  to={`/course/${p.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-card border border-line bg-white shadow-soft transition-transform duration-200 hover:-translate-y-1"
+                >
+                  <div className="flex aspect-square items-center justify-center bg-gradient-to-br from-linen to-white p-3">
+                    {p.image ? (
+                      <img
+                        src={p.image}
+                        alt={p.name}
+                        loading="lazy"
+                        className="max-h-full max-w-full rounded-lg object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      />
+                    ) : (
+                      <p.icon className="h-12 w-12 text-accent" strokeWidth={1.25} />
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between gap-2 border-t border-line px-3 py-2.5 text-left">
+                    <span className="text-xs font-semibold text-ink sm:text-sm">{p.name}</span>
+                    <ArrowRight className="h-4 w-4 flex-shrink-0 text-cta transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2} />
+                  </div>
+                </Link>
+              ))}
             </div>
-          </Reveal>
-        )}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -176,19 +194,19 @@ function CourseCard({ product }: { product: Product }) {
       to={`/course/${product.slug}`}
       className="card-lift group flex h-full flex-col overflow-hidden rounded-card border border-line bg-white"
     >
-      {/* Image / placeholder */}
-      <div className="relative flex h-48 items-center justify-center bg-linen">
+      {/* Image / placeholder, shown in full (object-contain) so no detail is cropped. */}
+      <div className="relative flex h-60 items-center justify-center bg-gradient-to-br from-linen to-white p-4">
         {product.image ? (
           <img
             src={product.image}
             alt={product.name}
             loading="lazy"
-            className="h-full w-full object-cover"
+            className="max-h-full max-w-full rounded-lg object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
         ) : (
           <Icon className="h-14 w-14 text-accent" strokeWidth={1.25} />
         )}
-        <span className="absolute left-4 top-4 rounded-full border border-line bg-white/90 px-3 py-1 text-xs font-semibold text-ink backdrop-blur">
+        <span className="absolute left-4 top-4 rounded-full border border-line bg-white/90 px-3 py-1 text-xs font-semibold text-ink shadow-sm backdrop-blur">
           {product.difficulty}
         </span>
       </div>
@@ -245,7 +263,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Why learn here"
           title="Why structured learning works better"
-          sub="Random tutorials teach isolated tricks. A structured academy teaches a connected system — so each skill makes the next one easier and your results become repeatable."
+          sub="Random tutorials teach isolated tricks. A structured academy teaches a connected system, so each skill makes the next one easier and your results become repeatable."
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {WHY_LEARN.map((f, i) => (
@@ -265,7 +283,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="The learning journey"
           title="One path, from your first shape to a complete system"
-          sub="Every course is a step within a larger journey. Follow it in order, or start with the skill you need most — each step builds toward the complete manicure."
+          sub="Every course is a step within a larger journey. Follow it in order, or start with the skill you need most, each step builds toward the complete manicure."
         />
         <LearningRoadmap />
       </Section>
@@ -325,7 +343,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Educational resources"
           title="References to support your learning"
-          sub="Evergreen starting points that reinforce the learning journey — not a blog feed."
+          sub="Evergreen starting points that reinforce the learning journey, not a blog feed."
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {RESOURCES.map((r, i) => (
@@ -433,8 +451,7 @@ export default function HomePage() {
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-graphite">
             Start with a single technique or follow the complete journey. Either
-            way, you get lifetime access, a certificate, and a 60-day guarantee —
-            so you can explore at your own pace.
+            way, you get lifetime access, a certificate, and a 60-day guarantee, so you can explore at your own pace.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <CTAButton to="/#courses" size="lg" showArrow={false}>

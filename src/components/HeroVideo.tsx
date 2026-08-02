@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils";
 interface HeroVideoProps {
   /** Self-hosted video URL (public path). Preferred when set. */
   src?: string;
-  /** Google Drive file ID (click-to-play embed) — used when `src` is absent. */
+  /** Google Drive file ID (click-to-play embed), used when `src` is absent. */
   videoId?: string;
   /** Poster image URL shown before playback. */
   posterSrc?: string;
-  /** Poster node (e.g. course image) — fallback when no posterSrc. */
+  /** Poster node (e.g. course image), fallback when no posterSrc. */
   poster?: ReactNode;
   /** Accessible label / caption. */
   title?: string;
@@ -19,7 +19,7 @@ interface HeroVideoProps {
 /**
  * Responsive 16:9 hero video with rounded corners.
  * - Self-hosted `src`: native <video> with controls, a poster, and no preload
- *   (lazy — only the poster loads until the visitor presses play). Never
+ *   (lazy, only the poster loads until the visitor presses play). Never
  *   autoplays with sound.
  * - Drive `videoId`: click-to-play facade that swaps in the Drive preview iframe
  *   on click, so the heavy embed loads only on demand.

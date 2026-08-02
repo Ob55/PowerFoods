@@ -6,7 +6,7 @@ import { Logo } from "./Logo";
 import { CTAButton } from "./CTAButton";
 import { cn } from "@/lib/utils";
 
-// Minimal top-level navigation — no unnecessary items. Anchors resolve on the
+// Minimal top-level navigation, no unnecessary items. Anchors resolve on the
 // home page; from a course page they route home and scroll to the section.
 const NAV_LINKS: { label: string; to: string }[] = [
   { label: "Courses", to: "/#courses" },
@@ -128,7 +128,7 @@ function Footer() {
           <Logo />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-graphite">
             A premium online academy for the Russian manicure, taught by an
-            award-winning educator on real clients — structured lessons, lifetime
+            award-winning educator on real clients, structured lessons, lifetime
             access, and a certificate of completion.
           </p>
           <span className="mt-6 block rule-accent" />

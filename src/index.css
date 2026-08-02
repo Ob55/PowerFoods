@@ -31,7 +31,7 @@ h4 {
 
 @layer components {
   .container-x {
-    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-12 xl:px-16;
+    @apply mx-auto w-full max-w-content px-4 sm:px-5 lg:px-6 xl:px-8;
   }
   /* Thin luxury divider (accent) used between editorial sections. */
   .rule-accent {
@@ -55,7 +55,7 @@ h4 {
   }
   /* Card hover lift used on interactive cards. */
   .card-lift {
-    @apply transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-lift;
+    @apply transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-lift;
   }
 }
 

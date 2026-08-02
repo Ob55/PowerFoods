@@ -11,7 +11,7 @@ export const CHECKOUT_URL =
 export const BONUS_ROUTE = "/bonus";
 
 // Hero demonstration videos live in Google Drive (IDs in products.ts). They only
-// embed if the files are shared publicly ("Anyone with the link — Viewer").
+// embed if the files are shared publicly ("Anyone with the link, Viewer").
 // The IDs supplied so far are not public (they 404 / require sign-in), so the
 // embeds are disabled and the media area shows a poster/placeholder instead of a
 // broken "file does not exist" frame. Flip this to true (or set
