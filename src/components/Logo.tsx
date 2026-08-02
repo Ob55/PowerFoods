@@ -22,14 +22,13 @@ export function Logo({
       >
         <Gem className="h-5 w-5" strokeWidth={1.5} />
       </span>
-      {/* TODO: replace with the real business name once the client provides it. */}
       <span
         className={cn(
           "font-display text-lg font-extrabold tracking-tight",
           light ? "text-white" : "text-ink"
         )}
       >
-        Nail<span className="text-accent">Mastery</span>
+        Nails<span className="text-accent">Nails</span>Nails
       </span>
     </span>
   );

@@ -57,10 +57,25 @@ h4 {
   .card-lift {
     @apply transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-lift;
   }
+  /* Pulsing glow to draw attention to key call-to-action buttons. */
+  .btn-glow {
+    animation: glowPulse 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(201, 123, 99, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 22px 6px rgba(201, 123, 99, 0.6);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .shine-text {
+  .shine-text,
+  .btn-glow {
     animation: none;
   }
 }
