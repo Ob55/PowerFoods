@@ -1,3 +1,4 @@
+import { Smartphone, Monitor, ArrowRight, type LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
 
@@ -9,18 +10,38 @@ const PLATFORM_LINKS = {
 };
 
 // Cards in the order the client asked for: iPhone first, then Android, then Desktop.
-const PLATFORMS: { name: string; href: string; featured?: boolean }[] = [
-  { name: "iPhone Users", href: PLATFORM_LINKS.iphone, featured: true },
-  { name: "Android Users", href: PLATFORM_LINKS.android },
-  { name: "Desktop Users", href: PLATFORM_LINKS.desktop },
+const PLATFORMS: {
+  icon: LucideIcon;
+  name: string;
+  href: string;
+  featured?: boolean;
+}[] = [
+  {
+    icon: Smartphone,
+    name: "iPhone Users",
+    href: PLATFORM_LINKS.iphone,
+    featured: true,
+  },
+  {
+    icon: Smartphone,
+    name: "Android Users",
+    href: PLATFORM_LINKS.android,
+  },
+  {
+    icon: Monitor,
+    name: "Desktop Users",
+    href: PLATFORM_LINKS.desktop,
+  },
 ];
 
-/** A clickable device tile. The whole card glows to draw the click and links to the offer. */
+/** A device tile that links to that platform's access page. The button glows to draw the click. */
 function PlatformCard({
+  icon: Icon,
   name,
   href,
   featured = false,
 }: {
+  icon: LucideIcon;
   name: string;
   href: string;
   featured?: boolean;
@@ -31,11 +52,17 @@ function PlatformCard({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "btn-glow group flex h-full items-center justify-center rounded-card border bg-white px-6 py-14 text-center transition-transform duration-500 hover:-translate-y-1",
+        "card-lift group flex h-full flex-col items-center justify-center rounded-card border bg-white p-8 text-center",
         featured ? "border-accent ring-2 ring-accent/40" : "border-line",
       )}
     >
-      <span className="font-display text-2xl font-bold text-ink">{name}</span>
+      <span className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent transition-transform duration-500 group-hover:scale-105">
+        <Icon className="h-8 w-8" strokeWidth={1.5} />
+      </span>
+      <h2 className="mt-5 font-display text-xl font-bold text-ink">{name}</h2>
+      <span className="btn-glow mt-6 inline-flex items-center gap-1.5 rounded-full bg-cta px-6 py-3 text-sm font-bold text-white transition-colors duration-200 group-hover:bg-cta-hover">
+        Click Here <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+      </span>
     </a>
   );
 }
