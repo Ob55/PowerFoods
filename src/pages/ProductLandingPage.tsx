@@ -60,9 +60,14 @@ function CourseImage({ product }: { product: Product }) {
 
 function EnrollButton({ product, className }: { product: Product; className?: string }) {
   return (
-    <CTAButton href={product.checkoutUrl} size="lg" className={className} showArrow={false}>
-      {`Enroll Now, ${formatPrice(product.price)}`}
-    </CTAButton>
+    <div className="flex flex-wrap items-center gap-3">
+      <CTAButton href={product.checkoutUrl} size="lg" className={className} showArrow={false}>
+        {`Enroll Now, ${formatPrice(product.price)}`}
+      </CTAButton>
+      <CTAButton to="/learning-journey" variant="secondary" size="lg">
+        From USA? Kindly Submit Here
+      </CTAButton>
+    </div>
   );
 }
 
