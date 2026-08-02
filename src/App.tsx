@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Layout } from "@/components/Layout";
 import HomePage from "@/pages/HomePage";
 import ProductLandingPage from "@/pages/ProductLandingPage";
+import LearningJourneyPage from "@/pages/LearningJourneyPage";
 import NotFound from "@/pages/NotFound";
 
 function ScrollToTop() {
@@ -27,6 +28,7 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
+          <Route path="learning-journey" element={<LearningJourneyPage />} />
           <Route path="course/:slug" element={<ProductLandingPage />} />
           {/* legacy alias */}
           <Route path="category/:slug" element={<ProductLandingPage />} />
