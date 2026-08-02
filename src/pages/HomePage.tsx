@@ -127,8 +127,8 @@ function Hero() {
             <CTAButton to="/#courses" size="lg" showArrow={false}>
               Explore the learning paths
             </CTAButton>
-            <CTAButton to="/learning-journey" variant="secondary" size="lg" showArrow={false}>
-              See the learning journey
+            <CTAButton to="/learning-journey" variant="secondary" size="lg">
+              Start Learning Now
             </CTAButton>
           </div>
         </Reveal>
