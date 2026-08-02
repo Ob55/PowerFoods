@@ -20,20 +20,20 @@ const PLATFORMS: {
   {
     icon: Smartphone,
     name: "iPhone",
-    tagline: "On an iPhone? Click here to start",
+    tagline: "iPhone user? Click here",
     href: PLATFORM_LINKS.iphone,
     featured: true,
   },
   {
     icon: Smartphone,
     name: "Android",
-    tagline: "On Android? Click here to start",
+    tagline: "Android user? Click here",
     href: PLATFORM_LINKS.android,
   },
   {
     icon: Monitor,
     name: "Desktop",
-    tagline: "On a computer? Click here to start",
+    tagline: "Desktop user? Click here",
     href: PLATFORM_LINKS.desktop,
   },
 ];
