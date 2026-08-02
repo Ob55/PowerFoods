@@ -128,7 +128,7 @@ function Hero() {
               Explore the learning paths
             </CTAButton>
             <CTAButton to="/learning-journey" variant="secondary" size="lg">
-              Start Learning Now
+              US Users, Get Free Access
             </CTAButton>
           </div>
         </Reveal>
